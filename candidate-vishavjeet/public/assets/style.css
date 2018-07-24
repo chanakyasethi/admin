@@ -1,0 +1,174 @@
+
+select.selectpicker:focus,
+select.selectpicker:active {
+  outline: 1px solid #eee;
+
+}
+
+input.search-query {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  border: none;
+  padding: 10px;
+  background-color: #F0F0F0;
+  min-width: 220px;
+  border-radius: 3px;
+}
+
+div#sidebar-filter {
+  width: 250px;
+  position: relative;
+  padding-left: 10px;
+}
+
+td.center i {
+  font-size: 20px;
+  padding: 0px;
+  margin: 0px;
+}
+table input[type="checkbox"] {
+  border: 1px solid #333;
+  background: white;
+  width: 25px;
+  height: 15px;
+  vertical-align: middle;
+}
+
+li.list-group {
+  list-style: none;
+}
+
+/*---------------------header-----------------------------*/
+.profile-info {
+  text-align: center;
+  padding: 10px;
+}
+
+span.header-icon {
+  padding: 0px 12px;
+}
+.cre {
+  line-height: 20px;
+}
+
+/*-------------------side controls-------------------------------*/
+input.filter-search {
+  border: 0px solid #d6d6d6;
+  background-color: #f0f0f0;
+  font-size: 15px;
+  padding: 7px 5px;
+  margin: 4px;
+  width: 96%;
+}
+
+.other-filers {
+  padding-top: 15px;
+  text-align: left;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.filter-panel {
+  border: 1px solid #eee;
+  padding: 3px;
+  box-shadow: 2px 3px 4px #eee;
+}
+select.selectpicker {
+  border: 0px;
+  padding: 10px;
+  max-width: 100%;
+  min-width: 100%;
+  margin: 0px 0px 10px 0px;
+  /* border-radius: 3px; */
+  background-color: #F0F0F0;
+}
+
+p.no-padding {
+  line-height: 8px;
+}
+
+a.testName {
+  font-size: 115%;
+  font-weight: 500;
+  color: #4d97a0;
+  -webkit-font-smoothing: antialiased;
+}
+
+ul.nav.nav-tabs.sub-active.bg-faded {
+  background-color: #8c8a8a;
+}
+ul.nav.nav-tabs.sub-active li{
+  cursor: pointer;
+  margin: 0px -10px;
+}
+ul.nav.nav-tabs.sub-active.bg-none li.active button{
+  background-color: #4d97a0;
+  box-shadow: 2px 4px 9px 0px rgba(0, 0, 0, 0.35);
+  color: white !important;
+}
+ ul.nav.nav-tabs.sub-active.bg-none li button{
+
+} 
+
+
+ul.nav.nav-tabs.sub-active.bg-none li.active a{
+  color: white !important;
+
+}
+
+ul.nav.nav-tabs.sub-active.bg-none {
+  background: transparent;
+  border-bottom: 0px;
+}
+
+
+.wizard-container {
+  padding: 0px;
+  background: #fff;
+  margin: 5px 0px;
+  position: relative;
+  box-shadow: 2px 2px 4px #00000014;
+}
+.wizard-container div {
+  display: inline-block;
+}
+
+.w-badge {
+  background: #eee;
+  padding: 8px 14px;
+  border-radius: 50%;
+  margin: 0px 5px;
+}
+
+.w-arrow {
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  background: #bfbfbf;
+  line-height: 4px;
+}
+
+.w-content {
+  font-size: 13px;
+  margin: 0px 5px;
+}
+.w-con {
+  padding: 10px;
+  cursor: pointer;
+}
+.w-con:hover {
+  background: #dfdfdf
+}
+.col-xs-4.w-con.active {
+  background: #5db3f5;
+}
+.col-xs-4.w-con.active .w-badge,  {
+  background-color: rgba(255, 255, 255, 0.5);
+  
+} 
+
+.col-xs-4.w-con.active .w-content {
+  color: white;
+}
+.col-xs-4.w-con.active .w-arrow {
+  background-color: #ddd;
+}

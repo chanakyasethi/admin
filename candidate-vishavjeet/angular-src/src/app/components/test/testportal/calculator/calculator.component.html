@@ -1,0 +1,100 @@
+<div class="cal-container" [ngClass]="{'open':calOpen}">
+  <div class="cal-col-12">
+    <div class="cal-row">
+      <div class="cal-col-12">
+        <div class="cal-row">
+          <div class="cal-col-12 calCol">
+            <div class="calResult">
+              <p class="calSum">{{calSum}}</p>
+              <p class="calOperator">{{calOperator}}</p>
+              <hr *ngIf="!calOperator||calOperator==' '">
+              <p class="calInput">{{calInput}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="cal-row">
+          <div class="cal-col-3">
+            <button class="cal-app-btn" (click)="butInput('1')">1</button>
+          </div>
+          <div class="cal-col-3">
+            <button class="cal-app-btn" (click)="butInput('2')">2</button>
+          </div>
+          <div class="cal-col-3">
+            <button class="cal-app-btn" (click)="butInput('3')">3</button>
+          </div>
+          <div class="cal-col-3">
+            <button class="cal-app-btn" (click)="butInput('+')">+</button>
+          </div>
+        </div>
+        <div class="cal-row">
+          <div class="cal-col-3">
+            <button class="cal-app-btn" (click)="butInput('4')">4</button>
+          </div>
+          <div class="cal-col-3">
+            <button class="cal-app-btn" (click)="butInput('5')">5</button>
+          </div>
+          <div class="cal-col-3">
+            <button class="cal-app-btn" (click)="butInput('6')">6</button>
+          </div>
+          <div class="cal-col-3">
+            <button class="cal-app-btn" (click)="butInput('-')">-</button>
+          </div>
+        </div>
+        <div class="cal-row">
+          <div class="cal-col-3">
+            <button class="cal-app-btn" (click)="butInput('7')">7</button>
+          </div>
+          <div class="cal-col-3">
+            <button class="cal-app-btn" (click)="butInput('8')">8</button>
+          </div>
+          <div class="cal-col-3">
+            <button class="cal-app-btn" (click)="butInput('9')">9</button>
+          </div>
+          <div class="cal-col-3">
+            <button class="cal-app-btn" (click)="butInput('/')">/</button>
+          </div>
+        </div>
+        <div class="cal-row">
+          <div class="cal-col-9">
+            <div class="cal-row">
+              <div class="cal-col-4">
+                <button class="cal-app-btn" (click)="butInput('*')">x</button>
+              </div>
+              <div class="cal-col-4">
+                <button class="cal-app-btn" (click)="butInput('0')">0</button>
+              </div>
+              <div class="cal-col-4">
+                <button class="cal-app-btn" (click)="butInput('.')">.</button>
+              </div>
+            </div>
+            <div class="cal-row">
+              <div class="cal-col-4">
+                <button class="cal-app-btn" (click)="butInput('sqrt')">&#8730;</button>
+              </div>
+              <div class="cal-col-4">
+                <button class="cal-app-btn" (click)="butInput('%')">%</button>
+              </div>
+              <div class="cal-col-4">
+                <button class="cal-app-btn" (click)="butInput('^')">^</button>
+              </div>
+            </div>
+            <div class="cal-row">
+              <div class="cal-col-4">
+                <button class="cal-app-btn" (click)="onClickAC()">AC</button>
+              </div>
+              <div class="cal-col-4">
+                <button class="cal-app-btn" (click)="onDelClick()">DEL</button>
+              </div>
+              <div class="cal-col-4">
+                <button class="cal-app-btn" (click)="butInput('mod')">mod</button>
+              </div>
+            </div>
+          </div>
+          <div class="cal-col-3">
+            <button class="cal-app-btn" (click)="onCalculation()">=</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

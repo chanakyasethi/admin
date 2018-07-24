@@ -1,0 +1,14 @@
+{
+  "dev": {
+    "PORT": 8000,
+    "MONGODB_URI": "mongodb://nokhwal:nokhwal2@ds031975.mlab.com:31975/resultservice",
+    "JWT_SECRET": "cfeindia",
+    "ALLOW_RESUME": 60000
+  },
+  "test": {
+    "PORT": 8000,
+    "MONGODB_URI": "mongodb://localhost:27017/resultservice-test",
+    "JWT_SECRET": "cfeindia",
+    "ALLOW_RESUME": 60000
+  }
+}

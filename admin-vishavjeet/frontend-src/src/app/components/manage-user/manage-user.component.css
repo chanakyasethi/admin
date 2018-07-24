@@ -1,0 +1,7 @@
+.text {
+  text-decoration: underline;
+  color: #0b78a9;
+}
+td.state {
+  width: 200px;
+}

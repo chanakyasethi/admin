@@ -1,0 +1,109 @@
+<div class="main">
+  <div class="header-bar">
+    <div class="col-sm-8">
+      <div class="logo pull-left">
+        <img src="../assets/images/logo-lg.png" alt="cfex_india" class="logo-center" height="70px">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <span class="signin-button pull-right">
+        <span>Already have an account?&nbsp;</span>
+        <a id="link-signin" class="btn btn-sm btn-success btn-outline" [routerLink]="['/login']">Sign in</a>
+      </span>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3 class="text-center sign-up">
+      Create your Account
+    </h3>
+    <div class="row">
+      <div class="col-sm-7">
+        <div class="benefits page-body">
+          <h3>Free account</h3>
+          <p>
+            Create apps, connect databases and add-on services, and collaborate on your apps, for free.
+          </p>
+
+          <h3>Your app platform</h3>
+          <p>
+            A platform for apps, with app management &amp; instant scaling, for development and production.
+          </p>
+
+          <h3>Deploy now</h3>
+          <p>
+            Go from code to running app in minutes. Deploy, scale, and deliver your app to the world.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="col-sm-4">
+        <div class="hpanel sign-up">
+          <div class="panel-body sign-up">
+
+
+            <form novalidate (ngSubmit)="onRegisterSubmit(f.valid)" #f="ngForm" style="display: block;">
+              <h2>Registration Details</h2>
+
+
+              <div class="form-group">
+                <label for="insName">Institute</label>
+                <input type="text" [ngClass]="{'invalidfield':f.submitted}" name="insName" id="insName" tabindex="2" class="form-control"
+                  placeholder="Institute Name" required pattern="[^-\s][a-zA-Z_\s]*[^-\s]" maxlength="40" [(ngModel)]="insName"
+                  #insName1="ngModel">
+
+                <div *ngIf="insName1.errors&& (f.submitted||insName1.dirty)">
+                  <h5 *ngIf="insName1.errors.required" class="inputError">Organisation name is required !</h5>
+                  <h5 *ngIf="insName1.errors.pattern && f.submitted" class="inputError">Only Alphabets are allowed. Whitespaces and special characters are not allowed!</h5>
+                </div>
+
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" [ngClass]="{'invalidfield':f.submitted}" email="true" name="email" id="email" tabindex="3" class="form-control"
+                  placeholder="Email" required pattern="\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+" [(ngModel)]="email" #email1="ngModel">
+
+                <div *ngIf="email1.errors&& (f.submitted||email1.dirty)">
+                  <h5 *ngIf="email1.errors.required" class="inputError">Email is required!</h5>
+                  <h5 *ngIf="email1.errors.pattern" class="inputError">Email is not valid!</h5>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control signup" name="password" id="password" placeholder="Enter Password" required pattern="(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+"
+                  minlength="8" maxlength="16" [(ngModel)]="password" #password1="ngModel">
+
+                <div *ngIf="password1.errors&& (f.submitted||password1.dirty)">
+                  <h5 *ngIf="password1.errors.required" class="inputError">Password is required !</h5>
+                  <h5 *ngIf="password1.errors.pattern" class="inputError">Password should contain at least one special character,one numeric value and one uppercase character !</h5>
+                  <h5 *ngIf="password1.errors.minlength&&!password1.errors.pattern" class="inputError">Password must at least 8 characters long !</h5>
+                  <h5 *ngIf="password1.errors.maxlength" class="inputError">Password can't greater then 16 characters !</h5>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="confirm_password">Confirm password</label>
+                <input type="password" id="confirm_password" placeholder="Confirm Password" class="form-control signup" name="confirm_password">
+              </div>
+              <!-- <div>
+                            <re-captcha class="g-recaptcha" data-siteKey="6LeCV0QUAAAAAEErgc5Iyu_s9LqFkbvTXptpS_rl" (resolved)="resolved($event)"></re-captcha>
+                           </div> -->
+              <div>
+                <div class="form-action">
+                  <button class="btn btn-primary btn-md btn-block btn-mod" name="commit" tabindex="3" type="submit" value="Log In">Create Account</button>
+
+                </div>
+              </div>
+            </form>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

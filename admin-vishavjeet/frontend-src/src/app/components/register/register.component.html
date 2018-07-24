@@ -1,0 +1,123 @@
+<div class="main">
+    <div class="header-bar">
+        <div class="col-sm-8">
+            <div class="logo pull-left">
+                <img src="../assets/images/logo-lg.png" alt="cfex_india" class="logo-center" height="70px">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <span class="signin-button pull-right">
+                <span>Already have an account?&nbsp;</span>
+                <a id="link-signin" class="btn btn-sm btn-success btn-outline" [routerLink]="['/login']">Sign in</a>
+            </span>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h3 class="text-center sign-up">
+            Create your Account
+        </h3>
+
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="benefits page-body">
+                    <h3>Free account</h3>
+                    <p>
+                        Create apps, connect databases and add-on services, and collaborate on your apps, for free.
+                    </p>
+
+                    <h3>Your app platform</h3>
+                    <p>
+                        A platform for apps, with app management &amp; instant scaling, for development and production.
+                    </p>
+
+                    <h3>Deploy now</h3>
+                    <p>
+                        Go from code to running app in minutes. Deploy, scale, and deliver your app to the world.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-sm-4">
+                <div class="hpanel sign-up">
+                    <div class="panel-body sign-up">
+                        <form [formGroup]="userForm" (ngSubmit)="onRegisterSubmit(userForm)" class="form-horizontal">
+
+                            <div class="form-group">
+                                <label for="org_name">Organization name</label>
+
+                                <input type="text" class="form-control signup" name="insName" aria-required="true" id="insName" placeholder="Enter your organization name"
+                                    formControlName="insName">
+
+                                <div *ngIf="insName.errors&& (submitted||insName.dirty)">
+                                    <h5 *ngIf="insName.errors.required" class="inputError">Organisation name is required !</h5>
+                                    <h5 *ngIf="insName.errors.pattern && submitted" class="inputError">Only Alphabets are allowed. Whitespaces and special characters are not allowed!</h5>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+
+                                <input type="text" class="form-control signup" name="email" id="Email" placeholder="Enter email address" aria-required="true"
+                                    formControlName="email">
+
+                                <div *ngIf="email.errors&& (submitted||email.dirty)">
+                                    <h5 *ngIf="email.errors.required" class="inputError">Email is required!</h5>
+                                    <h5 *ngIf="email.errors.pattern" class="inputError">Email is not valid!</h5>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control signup" name="password" id="Password" placeholder="Enter Password" formControlName="password">
+
+                                <div *ngIf="password.errors&& (submitted||password.dirty)">
+                                    <h5 *ngIf="password.errors.required" class="inputError">Password is required !</h5>
+                                    <h5 *ngIf="password.errors.pattern" class="inputError">Password should contain at least one special character,one numeric value and one uppercase
+                                        character !</h5>
+                                    <h5 *ngIf="password.errors.minlength&&!password.errors.pattern" class="inputError">Password must at least 8 characters long !</h5>
+                                    <h5 *ngIf="password.errors.maxlength" class="inputError">Password can't greater then 16 characters !</h5>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirm_password">Confirm password</label>
+                                <input type="password" id="confirm_password" placeholder="Confirm Password" class="form-control signup" name="confirm_password">
+                            </div>
+
+                            <div>
+                                <!-- <re-captcha class="g-recaptcha" data-siteKey="6LeCV0QUAAAAAEErgc5Iyu_s9LqFkbvTXptpS_rl" (resolved)="resolved($event)"></re-captcha> -->
+                            </div>
+
+                            <div>
+                                <div class="form-action">
+                                    <button class="btn btn-primary btn-md btn-block btn-mod" name="commit" tabindex="3" type="submit" value="Log In">Create Account</button>
+
+                                </div>
+                            </div>
+
+                        </form>
+
+                        <p class="privacy tos">
+                            Signing up signifies that you have read and agree to the
+                            <a target="_blank">Terms of Service</a>
+                            <span class="japan-only" style="display:none">, the
+                                <a target="_blank">Salesforce Japan Privacy Statement</a>
+                            </span> and our
+                            <a target="_blank">Privacy Policy</a>.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,47 @@
+.user-info-menu{
+    position: absolute;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    background: #fff;
+    width: 200px;
+    border-radius: 0 0 4px 4px;
+    z-index: 10000;
+    right: 0.3%;
+    top: 7.7%;
+    border: 1px solid #ddd;
+    box-shadow: 0px 1px 26px 0px #ddd;
+    transition: visibility 0.8s ,opacity 0.5s;
+}
+
+.info-menu-item{
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 3% 14%;
+    font-size: 15px;
+    transition: background 0.14s ;
+    font-weight:500;
+    user-select: none;    
+}
+.show{
+    visibility: visible;
+    opacity: 1;
+}
+.info-menu-item:hover{
+    background: #ddd;
+}
+.info-menu-item:active{
+    background:rgb(26, 67, 130);
+    border: rgb(26, 67, 130);
+    color:#fff;
+    }
+
+.info-menu-item:last-child{
+    padding-bottom: 5%;
+}
+
+.menu-icon{
+    font-size: 20px;
+    margin: 0px 22px 0 0;
+}

@@ -1,0 +1,38 @@
+{
+  "name": "userservice",
+  "version": "1.0.0",
+  "description": "User Service ",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "export NODE_ENV=test || SET NODE_ENV=\"test\" && mocha tests/*.test.js",
+    "test-watch": "nodemon --exec 'npm test'",
+    "playground-test": "export NODE_ENV=test || SET NODE_ENV=\"test\" && mocha tests/playground.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "cfe-mailer": "https://cfe_india:cfeindia@gitlab.com/cfe-modules/emailservice.git",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "externalcalls": "https://cfe_india:cfeindia@gitlab.com/cfe-modules/externalcalls.git",
+    "firebase-admin": "^5.12.1",
+    "jade": "^1.11.0",
+    "jsonwebtoken": "^8.1.0",
+    "link": "^0.1.5",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.13.9",
+    "morgan": "^1.9.0",
+    "nodemailer": "^4.4.2",
+    "nodemon": "^1.14.11",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
+    "request": "^2.85.0",
+    "validator": "^9.4.1",
+    "winston": "^2.4.1",
+    "winston-daily-rotate-file": "^3.0.2"
+  }
+}

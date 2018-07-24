@@ -1,0 +1,121 @@
+
+
+  <div class="content">
+      <div class="row">
+          <div class="col-lg-3">
+              <div id="sidebar" class="sidebar">
+                  <div class="sidebar__inner">
+                      <div class="hpanel">
+                          <div class="panel-body">
+                              <div class="m-b-md">
+                                  <h4>
+                                      Filters
+                                  </h4>
+                                  <small>
+                                      Filter your project basend on diferent options below.
+                                  </small>
+                              </div>
+
+                              <form method="get" class="form-horizontal">
+                                  <div class="form-group">
+                                      <div class="col-sm-12">
+                                          <label class=" control-label">FinishMode</label>
+                                          <select name="example2_length" aria-controls="example2" class="form-control input-sm">
+                                              <option value="" ng-reflect-value="All">All</option>
+                                              <option value="userSubmit" ng-reflect-value="All">UserSubmit</option>
+                                              <option value="timeOver" ng-reflect-value="All">TimeOver</option>
+                                              <option value="testWindowClose" ng-reflect-value="All">TestWindowClose</option>
+                                              <option value="incomplete" ng-reflect-value="All">Incomplete</option>
+                            
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <div class="col-sm-12">
+                                          <label class=" control-label">Score</label>
+                                          <select name="filterStatus"  aria-controls="example2" class="form-control input-sm">
+                                              <option value="">All</option>
+                                              <option value="40">Below 40</option>
+                                              <option value="50">40-50</option>
+                                              <option value="60">Above 50</option>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <button class="btn btn-success btn-block">Apply</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-lg-9">
+              <div class="hpanel">
+
+                  <div class="panel-body list">
+                      <div class="row" style="padding-bottom:  10px;">
+                        <div class="col-sm-6">
+                            <div class="dataTables_length pull-left" id="editable_length" style="margin-bottom:  5px;margin-top:  -5px;">
+                                <label>Show entries</label>
+                                <select  name="editable_length" aria-controls="example2" class="form-control input-sm">
+                                    <option value="5" >5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                      <div class="table-responsive project-list">
+                          <table class="table table-striped" style="border: 1px solid #ddd;padding: 5px;">
+                            
+                              <thead class="head">
+                                      <tr>
+                                          <th >Name</th>
+                                          <th>Email</th>
+                                          <th>Attempted</th>
+                                          <th>Score</th>
+                                          <th>Finish Mode</th>
+                                      </tr>
+
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let usr of givenTests; let i = index" [attr.data-index]="i">
+                                          <td>{{ usr.userName }}</td>
+                                          <td>{{ usr.email }}</td>
+                                          <td>{{ usr.attempted }}</td>
+                                          <td>{{ usr.score }}</td>
+                                          <td>{{ usr.finishMode }}</td>
+                                  </tr>
+                              
+                              </tbody>
+                          </table>
+                      </div>
+                      <div class="row">
+                          <div class="col-sm-5">
+                              <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing {{startTestInstance}} to {{endTestInstance}} of {{count}} entries</div>
+                          </div>
+                          <div class="col-sm-7">
+                              <div class="dataTables_paginate paging_simple_numbers pull-right" id="example2_paginate">
+                                  <ul class="pagination">
+                                      <li class="paginate_button previous disabled" id="example2_previous"  [ngClass]="{disabled : pageNo == 1}">
+                                          <a (click)="onPrev()" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
+                                      </li>
+                                      <li *ngFor="let element of dummyArray;let i=index" class="paginate_button"  [ngClass]="{active : pageNo == element}">
+                                          <a (click)="onPageno(element)" aria-controls="example2" data-dt-idx="1" tabindex="0">{{element}}</a>
+                                      </li>
+                                   
+                                      <li class="paginate_button next" id="example2_next" [ngClass]="{disabled : pageNo >= totalPages}">
+                                          <a (click)="onNext()" aria-controls="example2" data-dt-idx="6" tabindex="0">Next</a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+
+  </div>
+

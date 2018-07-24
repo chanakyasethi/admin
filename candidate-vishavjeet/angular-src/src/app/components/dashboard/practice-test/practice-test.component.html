@@ -1,0 +1,103 @@
+<!-- Main Wrapper -->
+
+<div class="content">
+  <div class="row">
+    <div class="col-lg-12" style="width:90%;margin-left:5%;">
+      <div class="hpanel">
+
+        <div class="panel-body list">
+          <div class="m-b-md">
+            <h4>
+              Practice Test
+            </h4>
+            <small>
+              The list of all practice tests are mentioned below
+            </small>
+          </div>
+          <div class="row" style="padding-bottom:  10px;" id="editable_length">
+          </div>
+          <div class="table-responsive project-list">
+            <table class="table table-striped" style="border: 1px solid #ddd;padding: 5px">
+              <tbody>
+                <tr *ngFor="let test of practiceTests;let i=index">
+                  <td colspan="1" class="t-index">{{i+1}}</td>
+                  <td colspan="4" class="t-name">{{test.testName}}</td>
+                  <td colspan="4" class="t-duration">Duration: {{test.duration}} Minutes</td>
+                  <td colspan="2" class="t-action">
+                    <button class="button med dark-blue" (click)="onTestClick(test)" *ngIf="!show[i]">Take Test</button>
+                    <button class="button med dark-blue" (click)="OnResume(test)" *ngIf="show[i]">Resume Test</button>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to 20 of 100 entries</div>
+            </div>
+            <div class="col-sm-7">
+              <div class="dataTables_paginate paging_simple_numbers pull-right" id="example2_paginate">
+                <ul class="pagination">
+                  <li class="paginate_button previous" id="example2_previous">
+                    <a aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
+                  </li>
+                  <li class="paginate_button active">
+                    <a aria-controls="example2">1</a>
+                  </li>
+                  <li class="paginate_button next" id="example2_next">
+                    <a aria-controls="example2" data-dt-idx="6" tabindex="0">Next</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Footer-->
+<div id="footer" class="app-footer">
+  <div class="section-content">
+    <div class="col-sm-6">
+      <ul class="list-inline no-margins">
+        <li class="hidden-xs">
+          <a>cfeindia</a>
+        </li>
+        <li>
+          <a>Blogs</a>
+        </li>
+        <li>
+          <a>Careers</a>
+        </li>
+        <li>
+          <a>Documentation</a>
+        </li>
+        <li>
+          <button class="btn  btn-xs btn-info btn-outline" style="font-weight:  600;"> Support</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-sm-6">
+      <ul class="list-inline pull-right no-margins">
+        <li>
+          <a>Terms of Service</a>
+        </li>
+        <li>
+          <a>Privacy</a>
+        </li>
+        <li>
+          <a>Cookies</a>
+        </li>
+        <li>© 2018 cfeindia.com</li>
+      </ul>
+    </div>
+
+  </div>
+</div>

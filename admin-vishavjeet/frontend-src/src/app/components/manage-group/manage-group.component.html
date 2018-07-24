@@ -1,0 +1,229 @@
+<app-header></app-header>
+<ng-progress [positionUsing]="'marginLeft'" [minimum]="0.15" [maximum]="1" [speed]="500" [direction]="'leftToRightIncreased'"
+   [color]="'#bf3c44'" [trickleSpeed]="500" [thick]="false" [ease]="'linear'" [showSpinner]="false"></ng-progress>
+ 
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div id="sidebar" class="sidebar">
+                        <div class="sidebar__inner">
+                            <div class="hpanel">
+                                <div class="panel-body">
+                                    <div class="m-b-md">
+                                        <h4>
+                                            Filters
+                                        </h4>
+                                        <small>
+                                            Filter your project basend on diferent options below.
+                                        </small>
+                                    </div>
+
+                                    <form method="get" class="form-horizontal">
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <label class=" control-label">Group Name</label>
+                                                <!-- <select [(ngModel)]="userList.branch" name="example2_length" aria-controls="example2" class="form-control input-sm"> -->
+                                                  <!-- <select name="example2_length" aria-controls="example2" class="form-control input-sm"> -->
+                                                    <input type="text" class="form-control input-sm" (keyup)="onSearch()" name="name" [(ngModel)]="group.groupName" placeholder="group name" >
+
+                                                    <!-- <option value="" ng-reflect-value="All">All</option> -->
+                                                    <!-- <option *ngFor="let branch of branch" value="{{branch}}" ng-reflect-value="Aptitude">{{branch}}</option> -->
+                                  
+                                                <!-- </select> -->
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <label class=" control-label">State</label>
+                                                <select [(ngModel)]="userList.state" name="example2_length" aria-controls="example2" class="form-control input-sm">
+                                                  <select name="example2_length" aria-controls="example2" class="form-control input-sm">
+
+                                                    <option value="" ng-reflect-value="All">All</option>
+                                                    <option *ngFor="let state of state" value="{{state}}" ng-reflect-value="Aptitude">{{state}}</option>
+                                                </select>
+                                            </div>
+                                        </div> -->
+                                        <!-- <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <label class=" control-label">Status</label>
+                                                <select name="example2_length" aria-controls="example2" class="form-control input-sm">
+                                                  <select  [(ngModel)]="userList.status" name="example2_length" aria-controls="example2" class="form-control input-sm">
+
+                                                    <option value="" ng-reflect-value="All">All</option>
+                                                    <option  *ngFor="let status of status"  value="{{status}}" ng-reflect-value="Aptitude">{{status}}</option>
+                                                </select>
+                                            </div>
+                                        </div> -->
+                                        <!-- <button (click)="onSearchGroupName()" class="btn btn-success btn-block">Search</button> -->
+                                    </form>
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+                    <div class="hpanel">
+
+                        <div class="panel-body list">
+                            <div class="m-b-md">
+                                <h4>
+                                    Group list
+                                </h4>
+                                <small>
+                                    The list of all groups are mentioned below
+                                </small>
+                                <div class="add-test">
+
+                                  <button  (click)="onCreate()" class="btn btn-md btn-outline btn-success pull-right">
+                                      <i class="pe-7s-plus"></i> Create Group</button>
+                                      <!-- <button  (click)="onCClick()" class="btn btn-md btn-outline btn-success pull-right">
+                                            <i class="pe-7s-plus"></i> Google</button> -->
+  
+                              </div>
+
+                            </div>
+                            <div class="row" style="padding-bottom:  10px;">
+                              <div class="col-sm-6">
+                                  <div class="dataTables_length pull-left" id="editable_length" style="margin-bottom:  5px;margin-top:  -5px;">
+                                      <label>Show entries</label>
+                                      <!-- <select (change)="onFilterUsers()" [(ngModel)]="userList.perPage" name="editable_length" aria-controls="example2" class="form-control input-sm">
+                                          <option value="5" >5</option>
+                                          <option value="10">10</option>
+                                          <option value="15">15</option>
+                                      </select> -->
+                                  </div>
+                              </div>
+                          
+                          </div>
+                            <div class="table-responsive project-list">
+                                <table class="table table-striped" style="border: 1px solid #ddd;padding: 5px;">
+                                  
+                                    <thead class="head">
+                                            <tr>
+
+                                                <!-- <th>
+                                                    <label class="control control--checkbox">
+                                                        <input type="checkbox" />
+                                                        <div class="control__indicator" style="top: 0px;left: 2px;"></div>
+                                                    </label>
+                                                    <div class="blank-space"></div>
+                                                </th> -->
+                                                <th >Group Name</th>
+                                                <th>No. of members</th>
+                                                <th>Action</th>
+
+                                            </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let c of groups;let i=index" >
+                                            <!-- <td>
+                                                <label class="control controlcheckbox">
+                                                    <input type="checkbox" [checked]="checkedBoxValue"/>
+                                                    <div class="control__indicator"></div>
+                                                </label>
+                                            </td> -->
+                                            <td style="cursor: pointer;" (click)="getGroup(c.groupName)">{{c.groupName}}</td>
+                                            <td>{{c.users.length}}</td>
+                                            <td>
+                                              <button class="btn btn-info" (click)="onEdit(c.groupName)">
+                                               Edit
+                                              </button>
+                                              <button class="btn btn-info" (click)="onDelete(c._id,i)">
+                                                Delete
+                                              </button>
+                                            </td>
+                                            <!-- <td>{{c.value.state}}</td>                                             -->
+                                            <!-- <td> -->
+                                                <!-- <span *ngIf="c.value.status !== Inactive">
+                                                    <i class="fa fa-toggle-on" (click)="onToggleClick(i,c)" style="font-size:150%"></i>
+                                                </span>
+                                                <span *ngIf="c.value.status == Inactive">
+                                                    <i class="fa fa-toggle-off" (click)="onToggleClick(i,c)" style="font-size:150%"></i>
+
+                                                </span> -->
+                                            <!-- </td> -->
+                                            <!-- <td *ngIf="c.value.state == 'draft'" (click)="onDelete(c)">
+                                                 <i class="fa fa-trash"></i>
+                                                </td> -->
+                                        </tr>
+                                    
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing {{startTestInstance}} to {{endTestInstance}} of {{count}} entries</div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="dataTables_paginate paging_simple_numbers pull-right" id="example2_paginate">
+                                        <ul class="pagination">
+                                            <li class="paginate_button previous disabled" id="example2_previous"  [ngClass]="{disabled : pageNo == 1}">
+                                                <a (click)="onPrev()" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
+                                            </li>
+                                            <li *ngFor="let element of dummyArray;let i=index" class="paginate_button"  [ngClass]="{active : pageNo == element}">
+                                                <a (click)="onPageno(element)" aria-controls="example2" data-dt-idx="1" tabindex="0">{{element}}</a>
+                                            </li>
+                                         
+                                            <li class="paginate_button next" id="example2_next" [ngClass]="{disabled : pageNo >= totalPages}">
+                                                <a (click)="onNext()" aria-controls="example2" data-dt-idx="6" tabindex="0">Next</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+  
+
+    <!-- Footer-->
+    <div id="footer" class="app-footer">
+        <div class="section-content">
+            <div class="col-sm-6">
+                <ul class="list-inline no-margins">
+                    <li class="hidden-xs">
+                        <a>cfeindia</a>
+                    </li>
+                    <li>
+                        <a>Blogs</a>
+                    </li>
+                    <li>
+                        <a>Careers</a>
+                    </li>
+                    <li>
+                        <a>Documentation</a>
+                    </li>
+                    <li>
+                        <button class="btn  btn-xs btn-info btn-outline" style="font-weight:  600;"> Support</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-6">
+                <ul class="list-inline pull-right no-margins">
+                    <li>
+                        <a>Terms of Service</a>
+                    </li>
+                    <li>
+                        <a>Privacy</a>
+                    </li>
+                    <li>
+                        <a>Cookies</a>
+                    </li>
+                    <li>© 2018 cfeindia.com</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>

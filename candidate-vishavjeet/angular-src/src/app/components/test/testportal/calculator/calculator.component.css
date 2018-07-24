@@ -1,0 +1,100 @@
+
+/*==============================================================================*/
+/*                           CALCULATOR STYLES                                  */
+/*==============================================================================*/
+.open{
+  display: inline-block!important;
+}
+
+/*===================CALCULATOR MAIN CONTAINER===========================*/
+.cal-container {
+  position: fixed;
+  background-color:#3d4543;
+  /* box-shadow: 1px 1px 30px  #3d4543; */
+  max-width: 300px;
+  padding: 1%;
+  border-radius: 3%;
+  display: block;
+  z-index: 9999;
+  right: 13%;
+  top:14%;
+
+
+}
+/*============================ALL ROWS==================================*/
+.cal-row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+/*==========================CALCULATOR RESULT SCREEN========================*/
+
+.calResult {
+  background: #bccd95;
+  height: 100px;
+  width: 250px;
+  border-radius: 4px;
+  margin-bottom: 3%;
+  text-align: right;
+  padding: 3%;
+}
+
+.calSum {font-size: 22px;}
+.calInput {font-size: 18px;}
+.calOperator {font-size: 20px;}
+hr { border: 1px solid #bccd95;}
+
+.calOperator,.calInput,.calSum {
+  color: black;
+  font-family: Orbitron;
+  margin: 0;
+}
+
+
+/*=========================CALCULATOR BUTTONS AND COLLUMNS===========================*/
+
+
+.cal-col-12 {
+  padding-right: 15px;
+  padding-left: 15px;
+  
+}
+.cal-col-12.calCol {padding: 0;}
+
+.cal-col-9 {
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.cal-col-4 {
+  -ms-flex: 0 0 33.333333%;
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+ 
+}
+.cal-col-3 {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+}
+.cal-col-3,.cal-col-4 {
+  padding: 1px;
+  text-align: center;
+}
+/*==========================CALCULATOR BUTTONS================================*/
+.cal-app-btn {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  outline: none;
+  
+  /* border: #66bfbf; */
+  font-weight: bold;
+}
+.cal-app-btn:active {
+  padding: 2px 0 0 2px;
+}

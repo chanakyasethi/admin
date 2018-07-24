@@ -1,0 +1,60 @@
+<app-navuser></app-navuser>
+<div class="container">
+  <div class="inst">
+    <div class="inst-heading">
+      <i> Please read given instructions carefully before starting the test. </i>
+      <br>
+      <i> In this test there are
+        <strong> 30 questions </strong> and the duration of the test is
+        <strong> 45 minutes </strong>. </i>
+    </div>
+
+  </div>
+
+  <br>
+  <ol class="instructions">
+    <li> On commencing the online test, the timer shows the remaining duration of the test. </li>
+    <br>
+    <li> Read questions carefully. For every question there are 4 options but only 1 will be correct. </li>
+    <br>
+    <li> Color coded box on the left side of screen shows the status of the question.
+    </li>
+    <div class="ins-colors">
+      <ul class="ui-c">
+        <li class="green">
+          <i class="ion-stop"></i>
+          <span class="inst-name">Answered</span>
+        </li>
+        <li class="active">
+          <i class="ion-stop"></i>
+          <span class="inst-name">Active</span>
+        </li>
+        <li class="orange">
+          <i class="ion-stop"></i>
+          <span class="inst-name">Mark for Review</span>
+        </li>
+        <li class="gray">
+          <i class="ion-stop"></i>
+          <span class="inst-name">Unanswered</span>
+        </li>
+      </ul>
+    </div>
+    <li> Click question number to view the respective question only.</li>
+    <br>
+    <li> Check the appropriate answer and navigate to next quetion by clicking on
+      <strong> next </strong> button.</li>
+    <br>
+    <li> Once you have completed the online test you can proceed to click
+      <strong> submit</strong> button to finish the test.</li>
+  </ol>
+  <div>
+    <div class="read" style="margin-left:26px;">
+      <label style="cursor:pointer;">
+        <input type="checkbox" [(ngModel)]="checkBoxValue"> I have read above instructions. </label>
+      <br>
+      <br>
+      <button class="button light-blue" [class.disabled]="!checkBoxValue" [disabled]="!checkBoxValue" (click)="onStartTest()">
+        Start test </button>
+    </div>
+  </div>
+</div>

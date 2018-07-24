@@ -1,0 +1,55 @@
+<!-- <div class="col-xs-12 wizard-container">
+
+  <a (click)="details()">
+    <div class="col-xs-4 w-con" routerLinkActive="active">
+      <div class="w-badge">
+        1
+      </div>
+      <div class="w-content">
+        Test Details
+      </div>
+      <div class="w-arrow">
+        &nbsp;
+      </div>
+    </div>
+  </a>
+  <a (click)="upload()">
+    <div class="col-xs-4 w-con " routerLinkActive="active">
+      <div class="w-badge">
+        2
+      </div>
+      <div class="w-content">
+        Upload Test
+      </div>
+      <div class="w-arrow">
+        &nbsp;
+      </div>
+    </div>
+  </a>
+  <a (click)="publish()">
+    <div class="col-xs-4 w-con " routerLinkActive="active">
+      <div class="w-badge">
+        3
+      </div>
+      <div class="w-content">
+        Publish Test
+      </div>
+      <div class="w-arrow">
+        &nbsp;
+      </div>
+    </div>
+  </a>
+</div> -->
+
+<div class="text-center m-b-md" id="wizardControl">
+
+    <div class="panel-heading">
+            <strong style="font-size:150%;">Enter the test details</strong>
+         </div>
+         <div></div>
+
+<a class="btn  m-r-xs m-l-xs " [routerLink]="['/load/createtest/testdetails']" [routerLinkActive]="['btn-success']" (click)="details()" data-toggle="tab">Test details</a>
+<a class="btn  m-r-xs m-l-xs"  [routerLink]="['/load/createtest/upload']" [routerLinkActive]="['btn-success']"  data-toggle="tab" (click)="upload()">Upload test</a>
+<a class="btn  m-r-xs m-l-xs"  [routerLink]="['/load/createtest/publish']" [routerLinkActive]="['btn-success']"  data-toggle="tab" (click)="publish()">Publish test</a>
+
+</div>

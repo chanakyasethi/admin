@@ -1,0 +1,275 @@
+/* cfex custom styles*/
+td.t-action{
+  float: right;
+}
+.dark-blue {
+  background: rgb(26, 67, 130);
+  border: rgb(26, 67, 130);
+  color: #fff;
+}
+button.med {
+  padding: 7px 30px;
+  border-radius: 3px;
+}
+/* ============================== */
+/* =========== Theme =========== */
+/* ============================== */
+
+body.light-skin .hpanel .panel-body {
+  box-shadow: 0 0 0 1px rgba(89, 105, 128, 0.1),
+    0 1px 3px 0 rgba(89, 105, 128, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+
+  border-radius: 4px;
+}
+.add-test {
+  position: absolute;
+  right: 20px;
+  top: 30px;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th {
+  padding: 8px;
+  font-size: 15px;
+  color: #565656;
+  vertical-align: top;
+  border-bottom: 1px solid #ddd;
+}
+/* ============================== */
+/* =========== Header =========== */
+/* ============================== */
+ul.sub-nav {
+  position: relative;
+  z-index: 100;
+  margin-top: 1px;
+  margin-bottom: -1px;
+  display: block;
+  padding-left: 0px;
+}
+.list-container {
+  background-color: #f2f2f2;
+  text-align: center;
+  margin-bottom: 0px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+img.cfe-logo {
+  height: 45px;
+  margin-top: -12px;
+  
+}
+
+.navbar-nav li {
+  float: none;
+  display: inline-block;
+}
+
+a.nav-link {
+  font-size: 12px !important;
+  font-weight: 600;
+  line-height: 45px;
+  padding: 0px !important;
+  font-family: 'Montserrat', sans-serif;
+  color: #666 !important;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus,
+.navbar-nav .open > a,
+.navbar-nav .open > a:hover,
+.navbar-nav .open > a:focus {
+  color: #1c2cea !important;
+  background: none !important ;
+ border-bottom: 2px solid transparent;
+}
+li.nav-item {
+  padding: 13px 15px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+li.active.nav-item a {
+  color: #1c2cea !important;
+  border-bottom: 2px solid #1c2cea;
+  transition: border 1s ease;
+ 
+}
+li.nav-item a{
+  height: 31.5px;
+}
+
+body.light-skin #header {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.12) !important;
+  height: 45px;
+  border: 0;
+  z-index: 10;
+}
+
+/* div#header::before {
+  background: linear-gradient(to right, #d00751, #1c2cea);
+  content: '';
+  width: 100%;
+  position: absolute;
+  top: 45px;
+  height: 3px;
+  left: 0;
+  z-index: 9999;
+  box-shadow: 2px 2px 6px rgba(4, 4, 4, 0.1803921568627451);
+} */
+/* ul.sub-nav {
+} */
+ul.sub-nav li {
+  display: inline-block;
+  padding: 10px 20px 0px 20px;
+}
+a.sub-item {
+  font-weight: 600;
+}
+
+a.sub-item i {
+  font-weight: 600;
+  font-size: 150%;
+}
+
+li.sub-nav-item.active {
+  background-color: #eceaea;
+  border-bottom: 2px solid #e77607;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-collapse: separate;
+}
+@media only screen and (min-width: 780px) {
+  .table-responsive {
+    min-height: 0.01%;
+    overflow: hidden;
+  }
+}
+@media (min-width: 768px) {
+  .form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 7px;
+    text-align: right;
+  }
+}
+a.list-link {
+  font-weight: 500;
+  display: inherit;
+}
+.sub-navbar-container::before {
+  background: linear-gradient(to right, #e77736, #2f57da);
+  content: '';
+  width: 100%;
+  position: absolute;
+  top: 45px;
+  height: 3px;
+  left: 0;
+  z-index: 9999;
+}
+
+/* ============================== */
+/* =========== Fotter =========== */
+/* ============================== */
+
+div#footer {
+  padding: 5px;
+  border-top: 1px solid #e0dede;
+  line-height: 35px;
+  background: #fff;
+  position: relative;
+  height: 45px;
+}
+
+div#footer a {
+  color: #777;
+  font-weight: 600;
+}
+
+/* ============================== */
+/* =========== Login =========== */
+/* ============================== */
+h3.p_col {
+  text-align: center;
+  padding-bottom: 24px;
+  color: #1c2cea;
+}
+
+.inp-mod {
+  height: 44px;
+}
+
+.input-group-addon i {
+  font-size: 18px;
+  color: #1c2cea;
+}
+
+.form-action {
+  padding: 15px 0px;
+}
+
+button.btn.btn-primary.btn-md.btn-block.btn-mod {
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  background: linear-gradient(to top right, #1c2cea, #1c2cea);
+  border-color: #cbffab;
+}
+
+.login-footer {
+  padding-top: 15px;
+  text-align: center;
+  border-top: 1px solid #eee;
+  margin-top: 15px;
+}
+
+/* ============================== */
+/* =========== Signup =========== */
+/* ============================== */
+.main {
+  background-color: #fff;
+}
+.header-bar {
+  display: block;
+  position: relative;
+  height: 70px;
+  background-color: #f9f9fb;
+  border-bottom: 1px solid #ddd;
+}
+
+span.signin-button.pull-right {
+  padding: 20px;
+}
+
+h3.text-center.sign-up {
+  padding: 15px 0px;
+  font-weight: 400;
+  color: #575857;
+}
+
+.benefits.page-body {
+  padding-top: 50px;
+}
+
+.benefits.page-body h3 {
+  padding: 30px 0px;
+  color: #1c2cea;
+  font-weight: 400;
+}
+
+.panel-body.sign-up {
+  padding: 30px;
+  background: #f9f9fb;
+  border: 1px solid #e4e4e7;
+  border-radius: 5px;
+}
+.form-control.signup {
+  border-color: #cdcdcd !important;
+}
+
+section.instruction {
+  padding: 30px;
+  background: transparent;
+}

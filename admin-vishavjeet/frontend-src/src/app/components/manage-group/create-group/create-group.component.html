@@ -1,0 +1,52 @@
+<app-header></app-header>
+<br><br><br>
+<div class="container">
+  <div style="float:left;width:45%" >
+    <table class="table table-striped" style="border: 1px solid #ddd;padding: 5px;">
+        <thead class="head"> 
+          <tr>     
+      <th>Emails</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let i = index">
+        <td>{{user}}</td>
+        <td><button (click)="onAdd(i)">Add</button></td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+  <div style="float:right;width:45%">
+      <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="email" class="form-control" name="id" placeholder="abc@xyz.com" #id>
+          </div>
+          <a (click)="addID(id.value)" class="btn btn-default">Add</a>
+        </form>
+      <form (ngSubmit)="onSubmit(group)" #group="ngForm">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Group Name</label>
+            <div class="col-sm-2 form-group">
+              <input type="text" class="form-control" placeholder="Group Name" [(ngModel)]='groupName'  name="groupName">
+              <!-- {{groupName}} -->
+            </div>
+          </div>
+          <table class="table table-striped" style="border: 1px solid #ddd;padding: 5px;">
+            <thead class="head"> 
+              <tr>     
+                <th>Emails</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of usersAdded; let i = index">
+                <td>{{user}}</td>
+                <td><button (click)="onRemove(i)">Remove</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-warning" type="submit">Submit</button>
+        </form>
+        </div>
+      </div>

@@ -1,0 +1,12 @@
+{
+	"dev": {
+		"PORT": 8080,
+		"MONGODB_URI": "mongodb://localhost:27017/testservice",
+		"JWT_SECRET": "cfeindia"
+	},
+	"test": {
+		"PORT": 8080,
+		"MONGODB_URI": "mongodb://localhost:27017/testservice-test",
+		"JWT_SECRET": "cfeindia"
+	}
+}

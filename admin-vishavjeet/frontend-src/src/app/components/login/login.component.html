@@ -1,0 +1,154 @@
+<!-- <div class="container" id="login-form">
+  <br>
+    <h3 class="heading-text text-center">
+    <img class="img-responsive" src="../../../assets/media/logo.png" style="margin: 0 auto">
+  </h3>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="panel panel-default" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px); margin:7vh auto;">
+        <div class="panel-heading">
+          <h2 class="text-center">Login</h2>
+        </div>
+        <form (ngSubmit)="onLoginSubmit(f.valid)" #f="ngForm" class="form-horizontal" id="validate-form">
+          <div class="panel-body">
+
+
+            <div class="form-group mb-md is-empty">
+              <div class="col-xs-12">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="material-icons">perm_identity</i>
+                  </span>
+                  <input name="username" type="text" class="form-control" placeholder="Username" data-parsley-minlength="6" required maxlength="15"
+                    [(ngModel)]="username" #username1="ngModel">
+
+                </div>
+                <div *ngIf="username1.errors && (f.submitted||username1.dirty)">
+                  <h5 *ngIf="username1.errors.required" class="inputError">Username is required !</h5>
+                </div>
+
+              </div>
+              <span class="material-input"></span>
+            </div>
+
+            <div class="form-group mb-md is-empty">
+              <div class="col-xs-12">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="material-icons">vpn_key</i>
+                  </span>
+
+
+                  <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required maxlength="16"
+                    [(ngModel)]="password" #password1="ngModel">
+                </div>
+                <div *ngIf="password1.errors&& (f.submitted||password1.dirty)">
+                  <h5 *ngIf="password1.errors.required" class="inputError">Password is required !</h5>
+                </div>
+
+
+
+              </div>
+              <span class="material-input"></span>
+            </div>
+
+            <div class="form-group mb-n">
+              <div>
+                <div class="col-xs-11 col-xs-offset-1">
+                  <a class="pull-left" [routerLink]="['/resetpassword']">Forgot password?</a>
+                  <br>
+                  <a (click)="generateLink(f.valid)" *ngIf="displaybutton" class="btn btn-default">Generate new link</a>
+                  <div class="checkbox-inline icheck pull-right p-n">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="checkbox-material">
+
+                        </span>Remember Me</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <div class="clearfix">
+              <a [routerLink]="['/register']" class="btn btn-default pull-left">Register</a>
+              <button class="btn btn-primary btn-raised pull-right" type="submit" data-toggle="modal" data-target=".bs-example-modal-sm">Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+    <div class="login-container" style="padding-top:2%">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center ">
+                    <img src="../../assets/images/logo-lg.png" alt="cfex_india" class="logo-center">
+                </div>
+
+                <div class="hpanel">
+
+                    <div class="panel-body" style="background: #f6f6f6;">
+                        <h3 class="p_col">Log in to your account</h3>
+                      
+                        <form novalidate (ngSubmit)="onLoginSubmit(f.valid)" #f="ngForm" class="form-horizontal" id="validate-form">
+                            <input name="_csrf" type="hidden" value="spsnCkeoxxWA6m9MBC3W1WTqG5eZFVRddlqiOWi4EsA=">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </div>
+
+
+                                    <input name="email" type="text" class="form-control inp-mod" placeholder="abc@xyz.com" data-parsley-minlength="6" required maxlength="35"
+                                    [(ngModel)]="email" #email1="ngModel">
+                
+                                <div *ngIf="email1.errors && (f.submitted||email1.dirty)">
+                                  <h5 *ngIf="email1.errors.required" class="inputError">Email is required !</h5>
+                                </div>
+
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-lock" aria-hidden="true"></i>
+                                    </div>
+
+
+                                    <input name="password" type="password" class="form-control inp-mod" id="exampleInputPassword1" placeholder="Password" required maxlength="16"
+                                    [(ngModel)]="password" #password1="ngModel">
+                                
+                                <div *ngIf="password1.errors&& (f.submitted||password1.dirty)">
+                                  <h5 *ngIf="password1.errors.required" class="inputError">Password is required !</h5>
+                                </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary btn-md btn-block btn-mod" name="commit" tabindex="3" type="submit" value="Log In">Log In</button>
+
+                            </div>
+                        </form>
+                       
+                       
+                        <div class="login-footer">
+                            <a class="panel-footer-mod"[routerLink]="['/register']">Don't have Account? &nbsp;
+                                <span style="color: #379000;font-weight:  bold;">Sign Up</span>
+                            </a>
+                        </div>
+                        
+                    </div>
+
+                </div>
+           
+              </div>
+        </div>
+
+    </div>
+

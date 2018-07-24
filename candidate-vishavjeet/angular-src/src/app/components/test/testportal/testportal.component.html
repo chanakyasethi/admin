@@ -1,0 +1,124 @@
+<section ngsf-fullscreen class="test-portal">
+  <div class="container">
+    <div class="time_submit pull-right">
+      <div class="col-xs-4">
+        <div class="timer">
+          <p class="btn btn-default" style="cursor: progress;display: inline-flex;">
+            <!-- <span class="glyphicon glyphicon-time" style="margin: 3px 0px;">
+              {{hr}}:{{min}}:{{sec}}
+              <span style="display: none">Connected: {{isConnected | async}} {{countDown}}</span>
+            </span> -->
+            <app-timer></app-timer>
+          </p>
+
+
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <p class="btn btn-default" (click)="onCalculatorOpen()" style="cursor:pointer;display: inline-flex;">
+          <i class="pe-7s-calculator"></i>
+        </p>
+      </div>
+      <div class="col-xs-6">
+        <div class="finish">
+          <button class="button soft-blue" (click)="onFinishClick()">Finish Test</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 col-sm-8">
+        <div class="col-xs-12">
+          <div class="test-name">
+            <h3>Aptitude Test</h3>
+          </div>
+        </div>
+        <div class="question-container">
+          <table class="q-container" width="100%" *ngFor="let test of testList; let i = index" [attr.data-index]="i" [class.show]="i === intiIndex">
+            <td class="ques-number" valign="top" align="left">Question no.
+              <span id="100">{{ i+1 }} </span>
+              <button type="button" class="btn btn-warning btn-sm" style="float:right" (click)="reviewClicked(i)">Review</button>
+              <button type="button" class="btn btn-danger btn-sm" style="float:right; margin-right: 10px" (click)="clearForm(fValA)" (click)="clearForm(fValB)"
+                (click)="clearForm(fValC)" (click)="clearForm(fValD)" (click)="reviewClear(i)">Clear</button>
+            </td>
+            <tbody class="question-box">
+              <tr>
+                <td class="ques" valign="top" align="left" style="padding-right: 38px !important; position: relative">
+                  <p class="qs"> {{ test.text }}</p>
+                </td>
+              </tr>
+              <tr class="ans-box">
+                <td class="answers">
+                  <div class="form-group">
+                    <div class="radio">
+                      <input type="radio" id="radio-1{{i}}" name="{{i}}" value="1" (click)="radioChecked($event,i)" (change)="radio(i)" #fValA>
+                      <label for="radio-1{{i}}" class="radio-label">{{ test.options[0] }}</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="radio">
+                      <input type="radio" id="radio-2{{i}}" name="{{i}}" value="2" (click)="radioChecked($event,i)" (change)="radio(i)" #fValB>
+                      <label for="radio-2{{i}}" class="radio-label">{{ test.options[1] }}</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="radio">
+                      <input type="radio" id="radio-3{{i}}" name="{{i}}" value="3" (click)="radioChecked($event,i)" (change)="radio(i)" #fValC>
+                      <label for="radio-3{{i}}" class="radio-label">{{ test.options[2] }}</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="radio">
+                      <input type="radio" id="radio-4{{i}}" name="{{i}}" value="4" (click)="radioChecked($event,i)" (change)="radio(i)" #fValD>
+                      <label for="radio-4{{i}}" class="radio-label">{{ test.options[3] }}</label>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="ques-navigation">
+            <div class="col-xs-6">
+              <button class="button light-blue" [disabled]="!intiIndex == 1" (click)="plusQues(-1)">previous</button>
+            </div>
+            <div class="col-xs-6 ">
+              <button class="button light-blue pull-right" (click)="plusQues(1)" [disabled]="intiIndex == maxIndex">next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="number-container">
+          <div class="buttons-number">
+            <ul class="numbers-row">
+              <li class="bb" *ngFor="let test of testList; let i = index" id="{{ i+1 }}" [attr.data-index]="i" [class.bb]="i === intiIndex"
+                (click)=onlistSelect(i); [class.done]="radioStatus[i]" [class.new]="reviewStatus[i]" [class.back]="clearStatus[i]">{{ i+1 }}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="instructions">
+          <div class="row">
+            <div class="col-xs-4"> &nbsp;</div>
+            <div class="col-xs-8" style="text-align:left">
+              <div class="col-xs-4">
+                <span class="glyphicon glyphicon-stop " style="color: #F5F5F5;font-size: 40px; float:right"></span>
+              </div>
+              <div class="col-xs-8">
+                <p class="idd" style="">Unanswered</p>
+              </div>
+              <div class="col-xs-4">
+                <span class="glyphicon glyphicon-stop " style="color: #8BC34A;font-size: 40px; float:right"></span>
+              </div>
+              <div class="col-xs-8">
+                <p class="idd" style="">Answered</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="calculator-app-toggle" [ngClass]="{'open':calOpen}">
+  <app-calculator></app-calculator>
+</div>

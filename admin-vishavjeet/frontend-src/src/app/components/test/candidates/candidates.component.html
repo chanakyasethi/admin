@@ -1,0 +1,259 @@
+
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div id="sidebar" class="sidebar">
+                        <div class="sidebar__inner">
+                            <div class="hpanel">
+                                <div class="panel-body">
+                                    <div class="m-b-md">
+                                        <h4>
+                                            Filters
+                                        </h4>
+                                        <small>
+                                            Filter your project basend on diferent options below.
+                                        </small>
+                                    </div>
+
+                                    <form method="get" class="form-horizontal">
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <label class=" control-label">Branch</label>
+                                                <select [(ngModel)]="userList.branch" name="example2_length" aria-controls="example2" class="form-control input-sm">
+
+                                                    <option value="" ng-reflect-value="All">All</option>
+                                                    <option *ngFor="let branch of branch" value="{{branch}}" ng-reflect-value="Aptitude">{{branch}}</option>
+                                  
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <label class=" control-label">Sort By</label>
+                                                <select name="example2_length" aria-controls="example2" class="form-control input-sm">
+
+                                                    <option value="All" ng-reflect-value="All">All</option>
+                                                    <option value="Aptitude" ng-reflect-value="Aptitude">Aptitude</option>
+                                                    <option value="English" ng-reflect-value="English">English</option>
+                                                    <option value="Reasoning" ng-reflect-value="Reasoning">Reasoning</option>
+                                                </select>
+                                            </div>
+                                        </div> -->
+                                        <!-- <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <label class=" control-label">State</label>
+                                                <select [(ngModel)]="userList.state" name="example2_length" aria-controls="example2" class="form-control input-sm">
+
+                                                    <option value="" ng-reflect-value="All">All</option>
+                                                    <option *ngFor="let state of state" value="{{state}}" ng-reflect-value="Aptitude">{{state}}</option>
+                                                </select>
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <label class=" control-label">Status</label>
+                                                <select [(ngModel)]="testStatus" name="filterStatus"  aria-controls="example2" class="form-control input-sm">
+                                                    <option value="">All</option>
+                                                    <option value="Assigned"> Assigned </option>
+                                                    <option value="Unassigned"> UnAssigned </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <button (click)="onFilterUsers()" class="btn btn-success btn-block">Apply</button>
+                                    </form>
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+                    <div class="hpanel">
+
+                        <div class="panel-body list">
+                            <div class="m-b-md">
+                                <!-- <h4>
+                                    Candidate list
+                                </h4>
+                                <small>
+                                    The list of all candidates are mentioned below
+                                </small> -->
+
+                            </div>
+                            <div class="row" style="padding-bottom:  10px;">
+                              <div class="col-sm-6">
+                                  <div class="dataTables_length pull-left" id="editable_length" style="margin-bottom:  5px;margin-top:  -5px;">
+                                      <label>Show entries</label>
+                                      <select (change)="onFilterUsers()" [(ngModel)]="userList.perPage" name="editable_length" aria-controls="example2" class="form-control input-sm">
+                                          <option value="5" >5</option>
+                                          <option value="10">10</option>
+                                          <option value="15">15</option>
+                                      </select>
+                                  </div>
+                              </div>
+                              <div class="col-sm-6">
+                                  <div id="example2_filter" class="dataTables_filter pull-right">
+                                      <!-- <label class="control-label">Search
+                                      </label>
+                                      <input type="search" class="form-control input-sm" placeholder="" aria-controls="example2"> -->
+                                      <button class="btn btn-default" (click)="onAssign()">Assign All</button>
+                                      <button class="btn btn-default" (click)="onCompute()">Compute Results</button>
+
+                                  </div>
+                              </div>
+                          </div>
+                            <div class="table-responsive project-list">
+                                <table class="table table-striped" style="border: 1px solid #ddd;padding: 5px;">
+                                  
+                                    <thead class="head">
+                                            <tr>
+
+                                                <th>
+                                                    <label class="control control--checkbox">
+                                                        <input type="checkbox" />
+                                                        <div class="control__indicator" style="top: 0px;left: 2px;"></div>
+                                                    </label>
+                                                    <div class="blank-space"></div>
+                                                </th>
+                                                <th >User Name</th>
+                                                <th>Branch</th>
+                                                <th>Email-Id</th>
+                                                <th>Phone-No..</th>
+                                                <th>Assign Test</th>
+                                                <th></th>
+                                            </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let c of AllUser;let i=index" [attr.data-index]="i">
+                                            <td>
+                                                <label class="control control--checkbox">
+                                                    <input type="checkbox" [checked]="checkedBoxValue"/>
+                                                    <div class="control__indicator"></div>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                {{c.value.username}}
+                                            </td>
+                                            <td>
+                                                <strong>{{c.value.branch}}</strong>
+                                            </td>
+                                            <td>{{c.value.email}}</td>
+                                            <td>{{c.value.phone}}</td>
+                                            <td> 
+                                               <span class="togglebutton toggle-info">
+                                              <label>
+                                                <input type="checkbox" [checked]="Toggle[i]" [disabled]="disabletoggle[i]" (click)="onAssigntestclick(c,i)">
+                                                <span class="toggle"></span>
+                                              </label>
+                                            </span></td>
+                                            <td>
+                                               <a (click)="viewReport(c)">View Report</a>
+                                            </td>
+                                        </tr>
+                                    
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing {{startTestInstance}} to {{endTestInstance}} of {{count}} entries</div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="dataTables_paginate paging_simple_numbers pull-right" id="example2_paginate">
+                                        <ul class="pagination">
+                                            <li class="paginate_button previous disabled" id="example2_previous"  [ngClass]="{disabled : pageNo == 1}">
+                                                <a (click)="onPrev()" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
+                                            </li>
+                                            <li *ngFor="let element of dummyArray;let i=index" class="paginate_button"  [ngClass]="{active : pageNo == element}">
+                                                <a (click)="onPageno(element)" aria-controls="example2" data-dt-idx="1" tabindex="0">{{element}}</a>
+                                            </li>
+                                         
+                                            <li class="paginate_button next" id="example2_next" [ngClass]="{disabled : pageNo >= totalPages}">
+                                                <a (click)="onNext()" aria-controls="example2" data-dt-idx="6" tabindex="0">Next</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal sidebar"  *ngIf="onShow" [ngClass]="{show: onShow == true}" tabindex="-1" role="dialog">
+            <div class="modal-dialog si" role="document">
+              <div class="modal-content si">
+               
+                    <span aria-hidden="true" style="float:right;" class="close" (click)="closeResult()">&times;</span>
+               
+                <div class="content">
+                    <div class="row">
+                         <div class="col-md-7">
+                            <p class="test-head">
+                                    <strong class="dataNames">Test Name:  </strong> {{test.testName}}
+                                </p>
+                                <p class="test-head">
+                                    <strong class="dataNames">Test Category:</strong>  {{test.category}}
+                                </p>
+                                <p class="test-head">
+                                    <strong class="dataNames">Test Level: </strong> {{test.difficultylevel}}
+                                </p>
+                         </div>
+                         <div class="col-md-5">
+                            <p class="test-head">
+                                 <strong class="dataNames">Name: </strong> {{userData.name}}
+                            </p>
+                             <p class="test-head">
+                                 <strong class="dataNames">Email: </strong> {{userData.email}}
+                              </p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div  class="row" *ngIf="result.finishMode !== undefined">
+                            <div class="col-md-3">
+                            </div>
+                            <div class="col-md-9" >
+                            <p class="test-head">
+                                    <strong class="dataNames">Score: </strong> {{result.score}}
+                                </p>
+                                <p class="test-head">
+                                    <strong class="dataNames">Status: </strong>{{result.status}}
+                                </p>
+                                <p class="test-head">
+                                    <strong class="dataNames">Finish Mode: </strong>{{result.finishMode}}
+                                </p>
+                                <p class="test-head">
+                                    <strong class="dataNames" >Time Spent: </strong>{{result.timeSpent}}
+                                </p>
+                               
+                         </div>
+                    </div>
+                    <div  class="row" *ngIf="result.finishMode == undefined">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-8" >
+                        <p class="test-head">
+                                <strong>Test not started yet </strong>
+                            </p>
+                           
+                     </div>
+                </div>
+              
+                </div>
+                
+                
+          
+          
+              </div>
+            </div>
+          </div>
+
+

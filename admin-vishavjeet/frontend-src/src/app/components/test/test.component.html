@@ -1,0 +1,114 @@
+<app-header></app-header>
+
+<ng-progress [positionUsing]="'marginLeft'" [minimum]="0.15" [maximum]="1" [speed]="500" [direction]="'leftToRightIncreased'"
+   [color]="'#bf3c44'" [trickleSpeed]="500" [thick]="false" [ease]="'linear'" [showSpinner]="false"></ng-progress>
+
+<div class="content">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <button type="button" onclick="history.back()" class="btn btn-outline btn-success m-b-sm">
+                <i class="fa fa-long-arrow-left"></i> Back to list
+            </button>
+
+            <div class="hpanel">
+
+                <div class="panel-body p-md">
+                    <div class="row m-b-xl">
+                        <div class="col-sm-6">
+
+                            <div class="col-sm-3">
+                                <p class="test-head">
+                                    <strong>Name: </strong>
+                                </p>
+                                <p class="test-head">
+                                    <strong>Category: </strong>
+                                </p>
+                                <p class="test-head">
+                                    <strong>Level: </strong>
+                                </p>
+                                <p class="test-head">
+                                    <strong>Duration: </strong>
+                                </p>
+                                <p class="test-head">
+                                    <strong>Total Questions: </strong>
+                                </p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="test-head">{{ details.testName }}</p>
+                                <p class="test-head">{{ details.category }}</p>
+                                <p class="test-head">{{ details.difficultylevel}}</p>
+                                <p class="test-head">{{ details.duration}} Minutes</p>
+                                <p class="test-head">{{ totalQuestions }}</p>
+                            </div>
+
+                            <br>
+
+                        </div>
+
+
+                        <div class="col-sm-6 text-right">
+                            <div class="text-right">
+                                <!-- <button (click)="onEdit()" class="btn btn-default btn-sm">
+                                    <i class="fa fa-pencil"></i> Edit </button>
+                                <button class="btn btn-default btn-outline btn-sm">
+                                    <i class="fa fa-check "></i> Save </button> -->
+
+
+                                <br>
+                                <address>
+                                    <strong>Created by: </strong> Admin name
+                                    <br>
+                                    <strong>Status: </strong> Published
+                                    <br>
+
+                                </address>
+                                <p>
+                                    <span>
+                                        <strong>Created Date:</strong> May 16, 2016</span>
+                                    <br/>
+                                    <span>
+                                        <strong>Created Mode:</strong> Uploaded</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="hpanel">
+                        <ul class="nav nav-tabs">
+                            <li class="" [class.active]="questionActive" id="questions">
+                                <a data-toggle="tab" aria-expanded="false" (click)="onQuestions()">
+                                    <i class="fa fa-list-ul"></i> Question list
+                                </a>
+                            </li>
+                            <li class="" [class.active]="candidateActive">
+                                <a (click)="onCandidate()" data-toggle="tab" aria-expanded="false">
+                                    <i class="fa fa-users"></i> Assigned Candidates
+                                </a>
+                            </li>
+                        
+                        </ul>
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane " [class.active]="questionActive">
+                                <app-questions [quesList]="questionList"></app-questions>
+                            </div>
+
+
+                            <div class="tab-pane" [class.active]="candidateActive">
+                                <div class="panel-body" style="box-shadow: none !important">
+                                    <app-candidates [Testdetails]="details"></app-candidates>
+
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

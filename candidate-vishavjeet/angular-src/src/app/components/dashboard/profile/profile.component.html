@@ -1,0 +1,48 @@
+<div class="content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="hpanel">
+        <div class="panel-body p-md">
+          <div class="row m-b-xl">
+            <div class="hpanel">
+              <ul class="nav nav-tabs">
+                <li class="" [class.active]="basicInfoActive" id="questions">
+                  <a data-toggle="tab" aria-expanded="false" (click)="onBasicInfo()">
+                    <i class="fa fa-user"></i> Profile
+                  </a>
+                </li>
+                <li class="" [class.active]="qualificationActive">
+                  <a (click)="onQualification()" data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-book"></i>Educational Qualifications
+                  </a>
+                </li>
+                <li class="" [class.active]="skillActive">
+                  <a data-toggle="tab" (click)="onSkill()" aria-expanded="true">
+                    <i class="fa fa-flask"></i>Skills
+                  </a>
+                </li>
+              </ul>
+              <div class="tab-pane">
+                <div id="tab-1" class="panel-body" *ngIf="basicInfoActive">
+                  <app-basicinfo [user]="userProfile"></app-basicinfo>
+
+                </div>
+              </div>
+
+              <div class="tab-pane">
+                <div class="panel-body" style="box-shadow: none !important" *ngIf="qualificationActive">
+                  <app-qualifications [user]="userProfile"></app-qualifications>
+                </div>
+              </div>
+              <div id="tab-4" class="tab-pane">
+                <div class="panel-body" *ngIf="skillActive">
+                  <app-skills [user]="userProfile"></app-skills>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

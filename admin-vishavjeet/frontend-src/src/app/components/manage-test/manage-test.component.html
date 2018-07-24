@@ -1,0 +1,245 @@
+<app-header></app-header>
+
+   <!-- Main Wrapper -->
+ <ng-progress [positionUsing]="'marginLeft'" [minimum]="0.15" [maximum]="1" [speed]="500" [direction]="'leftToRightIncreased'"
+   [color]="'#bf3c44'" [trickleSpeed]="500" [thick]="false" [ease]="'linear'" [showSpinner]="false"></ng-progress>
+ 
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-3">
+                <div id="sidebar" class="sidebar">
+                    <div class="sidebar__inner">
+                        <div class="hpanel">
+                            <div class="panel-body">
+                                <div class="m-b-md">
+                                    <h4>
+                                        Filters
+                                    </h4>
+                                    <small>
+                                        Filter your project based on different options below.
+                                    </small>
+                                </div>
+
+                            <form method="get" class="form-horizontal">
+                                <!-- <div class="col-sm-6">
+                                                <div id="example2_filter" class="dataTables_filter pull-right">
+                                                    <label class="control-label">Search
+                                                    </label>
+                                                    <input type="search" class="form-control input-sm" placeholder="" aria-controls="example2">
+                  
+                                                </div>
+                                            </div> -->
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <label for="filterCategory" class=" control-label">State</label>
+                                        <select [(ngModel)]="testQ.state" name="filterCategory" aria-controls="example2" class="form-control input-sm">
+
+                                            <option value="" ng-reflect-value="All">All</option>
+                                            <option *ngFor="let state of distinctState" value="{{state}}" ng-reflect-value="Aptitude">{{state}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <label class=" control-label">Sort By</label>
+                                            <select name="example2_length" aria-controls="example2" class="form-control input-sm">
+
+                                                <option value="All" ng-reflect-value="All">All</option>
+                                                <option value="Aptitude" ng-reflect-value="Aptitude">Aptitude</option>
+                                                <option value="English" ng-reflect-value="English">English</option>
+                                                <option value="Reasoning" ng-reflect-value="Reasoning">Reasoning</option>
+                                            </select>
+                                        </div>
+                                    </div> -->
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <label for="filterType" class=" control-label">Type</label>
+                                        <select [(ngModel)]="testQ.category" name="filterType" aria-controls="example2" class="form-control input-sm">
+                                            <option value="" ng-reflect-value="All">All</option>
+                                            <option value="{{cat}}" *ngFor="let cat of distinctCat" ng-reflect-value="Aptitude">{{cat}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <label class=" control-label">Level</label>
+                                        <select [(ngModel)]="testQ.difficultylevel" name="example2_length" aria-controls="example2" class="form-control input-sm">
+
+                                            <option value="" ng-reflect-value="All">All</option>
+                                            <option *ngFor="let level of distinctLevel" value="{{level}}" ng-reflect-value="Aptitude">{{level}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button class="btn btn-success btn-block" (click)="onFilter()">Apply</button>
+                            </form>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-9">
+            <div class="hpanel">
+
+                <div class="panel-body list">
+                    <div class="m-b-md">
+                        <h4>
+                            Test list
+                        </h4>
+                        <small>
+                            The list of all tests are mentioned below
+                        </small>
+                        <div class="add-test">
+
+                            <button (click)="onAddTest()" class="btn btn-md btn-outline btn-success pull-right">
+                                <i class="pe-7s-plus"></i> Add test</button>
+
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom:  10px;" id="editable_length">
+                        <div class="col-sm-6">
+                            <div class="dataTables_length pull-left" id="example2_length" style="margin-bottom:  5px;margin-top:  -5px;">
+                                <label>Show entries</label>
+                                <select (change)="onFilter()" [(ngModel)]="testQ.perPage" name="editable_length" aria-controls="example2" class="form-control input-sm">
+                                    <option value="">5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="table-responsive project-list">
+                        <table class="table table-striped" style="border: 1px solid #ddd;padding: 5px;">
+
+                            <thead class="head">
+                                <tr>
+
+                                    <!-- <th>
+                                                <label class="control control--checkbox">
+                                                    <input type="checkbox" />
+                                                    <div class="control__indicator" style="top: 0px;left: 2px;"></div>
+                                                </label>
+                                                <div class="blank-space"></div>
+                                            </th> -->
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Duration</th>
+                                    <th>Difficulty level</th>
+                                    <th>Test Type</th>
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let test of testArray">
+                                    <!-- <td>
+                                            <label class="control control--checkbox">
+                                                <input type="checkbox" />
+                                                <div class="control__indicator"></div>
+                                            </label>
+                                        </td> -->
+                                    <td>
+                                        <a class="list-link" (click)="onTestClick(test)">{{test.value.testName}}</a>
+                                        <small>
+                                            <i class="fa fa-clock-o">{{test.value.createdOn | dateFormate}}</i>
+                                        </small>
+                                    </td>
+                                    <td>
+                                        {{test.value.category}}
+                                    </td>
+                                    <td>
+                                        <strong> {{test.value.duration}}</strong>
+                                    </td>
+                                    <td> {{test.value.difficultylevel}}</td>
+                                    <td *ngIf="test.value.practice">Practice</td>
+                                    <td *ngIf="!test.value.practice">Actual</td>
+
+                                    <td>
+
+                                        <a (click)="onDelete(test)" *ngIf="test.value.state == 'draft' || test.value.state == 'published'">
+                                            <i style="font-size:120%;" class="fa fa-trash"></i>
+                                        </a>
+                                        <a (click)="onEdit(test)" *ngIf="test.value.state == 'draft'">
+                                            <i style="font-size:120%;margin-left:10%;" class="fa fa-edit"></i>
+                                        </a>
+
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing {{startTestInstance}} to {{endTestInstance}} of {{count}} entries</div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="dataTables_paginate paging_simple_numbers pull-right" id="example2_paginate">
+                                <ul class="pagination">
+                                    <li class="paginate_button previous" id="example2_previous" [ngClass]="{disabled : pageNo == 1}">
+                                        <a (click)="onPrev()" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
+                                    </li>
+                                    <li class="paginate_button active" *ngFor="let element of dummyArray;let i=index" [ngClass]="{active :pageNo == element}">
+                                        <a aria-controls="example2" (click)="onPageno(element)" data-dt-idx="1" tabindex="0">{{element}}</a>
+                                    </li>
+                                    <li class="paginate_button next" id="example2_next" [ngClass]="{disabled : pageNo >= totalPages}">
+                                        <a (click)="onNext()" aria-controls="example2" data-dt-idx="6" tabindex="0">Next</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Footer-->
+<div id="footer" class="app-footer">
+    <div class="section-content">
+        <div class="col-sm-6">
+            <ul class="list-inline no-margins">
+                <li class="hidden-xs">
+                    <a>cfeindia</a>
+                </li>
+                <li>
+                    <a>Blogs</a>
+                </li>
+                <li>
+                    <a>Careers</a>
+                </li>
+                <li>
+                    <a>Documentation</a>
+                </li>
+                <li>
+                    <button class="btn  btn-xs btn-info btn-outline" style="font-weight:  600;"> Support</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-6">
+            <ul class="list-inline pull-right no-margins">
+                <li>
+                    <a>Terms of Service</a>
+                </li>
+                <li>
+                    <a>Privacy</a>
+                </li>
+                <li>
+                    <a>Cookies</a>
+                </li>
+                <li>© 2018 cfeindia.com</li>
+            </ul>
+        </div>
+
+    </div>
+</div>

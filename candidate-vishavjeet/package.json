@@ -1,0 +1,34 @@
+{
+  "name": "candidate",
+  "version": "1.0.0",
+  "description": "Candidate experience of test",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./bin/www"
+  },
+  "author": "Rohan Raman",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/http": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "externalcalls": "https://cfe_india:cfeindia@gitlab.com/cfe-modules/externalcalls.git",
+    "jade": "^1.11.0",
+    "jsonwebtoken": "^8.1.0",
+    "mongodb-download": "^2.2.4",
+    "mongoose": "^4.10.8",
+    "nodemailer": "^4.4.1",
+    "nodemailer-express-handlebars": "^2.0.0",
+    "nodemon": "^1.12.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
+    "request": "^2.87.0",
+    "screenfull": "^3.3.2",
+    "winston": "^2.4.1",
+    "winston-daily-rotate-file": "^3.0.2"
+  }
+}

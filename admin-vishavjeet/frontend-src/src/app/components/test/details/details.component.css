@@ -1,0 +1,22 @@
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    cursor: pointer;
+}
+
+tbody {
+    background-color: white;
+    box-shadow: 2px 2px 5px grey;
+}
+
+
+
+.nav-tabs {
+    background-color: #53798a;
+}
+
+ul.nav.nav-tabs.sub-active .active {
+    background-color: #0c5270ce;
+}
+
+li.active {
+    margin-bottom: 0px;
+}

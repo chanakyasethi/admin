@@ -1,0 +1,160 @@
+<app-header></app-header>
+
+<div id="wrapper" style="padding-top: 64px;">
+  <div id="layout-static">
+    <!---------------------------------------------------------------content area downside---------------------------------------------------------->
+
+
+    <div class="static-content-wrapper">
+      <div class="static-content">
+        <div class="page-content">
+          <ol class="breadcrumb">
+
+            <li class="">
+              <a href="#">Admin</a>
+            </li>
+            <li class="active">
+              <a href="#">Manage</a>
+            </li>
+            <li class="active">
+              <a href="#">add Quesions</a>
+            </li>
+
+          </ol>
+
+
+          <div class="container">
+         
+          
+
+
+            <div class="row">
+
+<div class="col-sm-3" style="padding-top: 60px">
+<div class="test-instruction">
+<h4 class="text-left">Instructions: </h4>
+<label>Step: 1</label>
+<p>Please select the option how you want to add Quesions</p>
+<label>Step: 2</label>
+<p>Upload process may take some time so be patience</p>
+   <label>Step: 3</label>
+   <p>After adding Quesions, you have to publish the test, otherwise it will available in draft</p>
+   
+</div>
+</div>
+
+
+
+              <div class="col-sm-6 col-sm-offset-1" style="padding-top:60px">
+              <div class="form-container" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);">
+                <div class="form-container-heading">
+                  <h4>PLEASE ADD DETAILS FOR YOUR TEST</h4>
+                </div>
+                 <form  ngNativeValidate (ngSubmit)="onSubmitTest()" #f="ngForm" class="form-horizontal">
+                <div class="form-container-body">
+
+                    <div class="form-group mb-md is-empty">
+                      <div class="col-xs-10">
+                        <input 
+                          [(ngModel)]="testName"  
+                          name="testName" 
+                          type="text" 
+                          class="form-control" 
+                          id="testName" 
+                          placeholder="Test Name" 
+                          required>
+                      </div>
+
+                      <span class="material-input"></span>
+                    </div>
+                    
+                    <div class="form-group mb-md is-empty">
+                      <div class="col-xs-10">
+                        <input 
+                          [(ngModel)]="category" 
+                          name="category" 
+                          type="text" 
+                          class="form-control" 
+                          id="category" 
+                          placeholder="Category" 
+                          required>
+                      </div>
+                      <span class="material-input"></span>
+                    </div>
+
+                    <!-- <div class="form-group mb-md is-empty">
+                      <div class="col-xs-8 col-xs-offset-2">
+                       <input [(ngModel)]="totalQuestion" name="totalquestion" type="number" class="form-control"  id="totalQuestion" placeholder="Total Questions" required>
+                      </div>
+                      <span class="material-input"></span>
+                    </div> --> 
+
+                    <div class="form-group mb-md is-empty">
+                      <div class="col-xs-10">
+                        <input  
+                          [(ngModel)]="duration" 
+                          name="duration" 
+                          type="number" 
+                          class="form-control" 
+                          id="duration" 
+                          placeholder="Test Duration in minutes" 
+                          required="" 
+                          style="max-width: 90%; float: left">:00
+                      </div>
+                      <span class="material-input"></span>
+                    </div>
+
+                    <div class="form-group mb-md is-empty">
+                      <div class="col-xs-10">
+                        <select 
+                          [(ngModel)]="level" 
+                          name="level" 
+                          type="text" 
+                          class="form-control" 
+                          id="level" 
+                          placeholder="Level" 
+                          required >
+                          <option value="easy">Easy</option>
+                          <option value="medium">Medium</option>
+                          <option value="hard">Hard</option>
+                          <option value="very hard">Very Hard</option>
+                        </select>
+                      </div>
+                      <span class="material-input"></span></div>
+
+                </div>
+                <div class="form-footer">
+                  <div class="clearfix">
+                    <button 
+                      class="btn btn-primary btn-raised pull-left" 
+                      type="submit"
+                      [routerLink] ="['/addquestions']"
+                      [disabled]="!f.valid">Next</button>
+                  </div>
+                </div>
+               </form>
+              </div>
+            </div>
+            </div>
+            <!-- .container-fluid -->
+          </div>
+          <!-- #page-content -->
+        </div>
+        <footer role="contentinfo">
+          <div class="clearfix">
+            <ul class="list-unstyled list-inline pull-left">
+              <li>
+                <h6 style="margin: 0;">Coming</h6>
+              </li>
+            </ul>
+          </div>
+        </footer>
+
+      </div>
+    </div>
+
+    <!----------------------------------------------------------------Content area is upside------------------------------------>
+  </div>
+
+  <app-info></app-info>
+</div>

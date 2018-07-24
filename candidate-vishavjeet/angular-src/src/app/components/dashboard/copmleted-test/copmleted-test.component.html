@@ -1,0 +1,190 @@
+<!-- Main Wrapper -->
+<div class="content">
+  <div class="row">
+    <div class="col-lg-12" style="width:90%;margin-left:5%;">
+      <div class="hpanel">
+        <div class="panel-body list">
+          <div class="m-b-md">
+            <h4>
+              Complete Test
+            </h4>
+            <small>
+              The list of all complete tests are mentioned below
+            </small>
+          </div>
+          <div class="row" style="padding-bottom:  10px;" id="editable_length">
+          </div>
+          <div class="table-responsive project-list">
+            <table class="table table-striped" style="border: 1px solid #ddd;padding: 5px">
+              <tbody>
+                <tr *ngFor="let test of completedTests;let i=index">
+                  <td colspan="1" class="t-index">{{i+1}}</td>
+                  <td colspan="4" class="t-name">{{test.testName}}</td>
+                  <td colspan="4" class="t-duration">Duration: {{test.duration}} Minutes</td>
+                  <td colspan="2" class="t-action">
+                    <button class="button med dark-blue" (click)="onViewResult(i)">View Report</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row">
+            <div class="col-xs-5">
+              <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to 20 of 100 entries</div>
+            </div>
+            <div class="col-xs-7">
+              <div class="dataTables_paginate paging_simple_numbers pull-right" id="example2_paginate">
+                <ul class="pagination">
+                  <li class="paginate_button previous" id="example2_previous">
+                    <a aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
+                  </li>
+                  <li class="paginate_button active">
+                    <a aria-controls="example2">1</a>
+                  </li>
+                  <li class="paginate_button next" id="example2_next">
+                    <a aria-controls="example2" data-dt-idx="6" tabindex="0">Next</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showDialog" class="modal" [ngClass]="{show:'showDialog'}" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-headerc">
+        <h5 class="modal-title">Result of {{testName}}</h5>
+        <button type="button" (click)="onCloseDialog()" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="close-btn">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid bd-example-row">
+          <div class="row">
+            <div class="result-col col-md-6">
+              <div class="row">
+                <div class="col-xs-6">
+                  <dt>Created At</dt>
+                </div>
+                <div class="col-xs-1">:</div>
+                <div class="col-xs-5">
+                  <dd>{{resultToShow?.createdAt|date: 'short'}}</dd>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <dt>Updated At</dt>
+                </div>
+                <div class="col-xs-1">:</div>
+                <div class="col-xs-5">
+                  <dd>{{resultToShow?.updatedAt|date: 'short'}}</dd>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <dt>Attempt Questions</dt>
+                </div>
+                <div class="col-xs-1">:</div>
+                <div class="col-xs-5">
+                  <dd>{{resultToShow?.response.length}}</dd>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <dt>Score</dt>
+                </div>
+                <div class="col-xs-1">:</div>
+                <div class="col-xs-5">
+                  <dd>{{resultToShow?.score}}</dd>
+                </div>
+              </div>
+            </div>
+            <div class="result-col col-md-6">
+              <div class="row">
+                <div class="col-xs-6">
+                  <dt>Test ID</dt>
+                </div>
+                <div class="col-xs-1">:</div>
+                <div class="col-xs-5">
+                  <dd>{{resultToShow?.testId}}</dd>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <dt>Finish Mode</dt>
+                </div>
+                <div class="col-xs-1">:</div>
+                <div class="col-xs-5">
+                  <dd>{{resultToShow?.finishMode}}</dd>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <dt>Time Spent</dt>
+                </div>
+                <div class="col-xs-1">:</div>
+                <div class="col-xs-5">
+                  <dd>{{resultToShow?.timeSpent/1000}} Sec.</dd>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <dt>Test Duration</dt>
+                </div>
+                <div class="col-xs-1">:</div>
+                <div class="col-xs-5">
+                  <dd>{{resultToShow?.totalAllocatedTime/60000}} Min.</dd>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footerc">
+        <button type="button" class="btn btn-secondary" (click)="onCloseDialog()" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer-->
+<div id="footer" class="app-footer">
+  <div class="section-content">
+    <div class="col-xs-6">
+      <ul class="list-inline no-margins">
+        <li class="hidden-xs">
+          <a>cfeindia</a>
+        </li>
+        <li>
+          <a>Blogs</a>
+        </li>
+        <li>
+          <a>Careers</a>
+        </li>
+        <li>
+          <a>Documentation</a>
+        </li>
+        <li>
+          <button class="btn  btn-xs btn-info btn-outline" style="font-weight:  600;"> Support</button>
+        </li>
+      </ul>
+    </div>
+    <div class="col-xs-6">
+      <ul class="list-inline pull-right no-margins">
+        <li>
+          <a>Terms of Service</a>
+        </li>
+        <li>
+          <a>Privacy</a>
+        </li>
+        <li>
+          <a>Cookies</a>
+        </li>
+        <li>© 2018 cfeindia.com</li>
+      </ul>
+    </div>
+  </div>
+</div>

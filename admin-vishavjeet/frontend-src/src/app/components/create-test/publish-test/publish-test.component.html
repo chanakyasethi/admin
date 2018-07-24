@@ -1,0 +1,88 @@
+
+<div class="content">
+
+    <div class="row">
+
+
+        <div class="col-lg-12">
+            <div class="hpanel">
+               
+                <div class="panel-body">
+
+                    <!-- <form name="simpleForm" novalidate="" id="simpleForm" action="#" method="post"> -->
+<!-- 
+                        <div class="text-center m-b-md" id="wizardControl">
+
+                                <div class="panel-heading">
+                                        <strong style="font-size:150%;">Enter the test details</strong>
+                                     </div>
+
+
+                            <a class="btn btn-default m-r-xs m-l-xs " data-toggle="tab">Test details</a>
+                            <a class="btn btn-default m-r-xs m-l-xs "  data-toggle="tab">Upload test</a>
+                            <a class="btn btn-success m-r-xs m-l-xs btn-success" data-toggle="tab">Publish test</a>
+
+                        </div> -->
+                        <app-wizard></app-wizard>
+
+
+                        <div class="tab-content">
+                            <div id="step1" class="p-m tab-pane active">
+
+                                <div >
+                                    <div>
+                                        <div  class=" m-t-md">
+                                            <h5 class="text-success m-b-sm">STEP 3: </h5>
+                                            <p >
+                                                Verify all the information. Once published you can't edit.
+                                            </p>
+                                            <br>
+                                          </div>
+                                    </div>
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+
+                                                <div class="col-sm-5">
+                                                    <p class="test-head">
+                                                        <strong>Name: </strong>
+                                                    </p>
+                                                    <p class="test-head">
+                                                        <strong>Category: </strong>
+                                                    </p>
+                                                    <p class="test-head">
+                                                        <strong>Level: </strong>
+                                                    </p>
+                                                    <p class="test-head">
+                                                        <strong>Duration: </strong>
+                                                    </p>
+                                                    <p class="test-head">
+                                                        <strong>Total Questions: </strong>
+                                                    </p>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <p class="test-head">{{testName}}</p>
+                                                    <p class="test-head">{{category}}</p>
+                                                    <p class="test-head">{{duration}}</p>
+                                                    <p class="test-head">{{level}}</p>
+                                                    <p class="test-head">{{totalQuestion}}</p>
+                                                </div>
+
+                                                <br>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right m-t-xs">
+                                <button class="btn btn-default prev" onclick="history.back()">Previous</button>
+                                <button class="btn btn-success next" (click)="onPublish()">Publish</button>
+                            </div>
+                        </div>
+                
+                <!-- </form> -->
+            </div>
+        </div>
+    </div>
+</div>

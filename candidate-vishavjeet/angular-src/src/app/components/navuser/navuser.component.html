@@ -1,0 +1,49 @@
+<div id="header">
+  <div id="logo" class="cfe_logo" style="color:1c2cea;">
+
+    <img src="../assets/images/logo.png" alt="cfex_india" class="cfe-logo">
+
+  </div>
+  <nav role="navigation">
+    <ul class="nav navbar-nav " style="position:  absolute;left: 50%;transform: translateX(-50%);">
+      <li class=" nav-item" routerLink='practice-tests' [routerLinkActive]="['active']">
+        <a class="nav-link ">Practice Test</a>
+      </li>
+      <li class="nav-item" routerLink='assigned-tests' [routerLinkActive]="['active']">
+        <a class="nav-link">Assgin Test</a>
+      </li>
+      <li class="nav-item" routerLink='completed-tests' [routerLinkActive]="['active']">
+        <a class="nav-link">Complete Test</a>
+      </li>
+      <!-- <li class="nav-item" routerLink='profile' [routerLinkActive]="['active']">
+        <a class="nav-link">Profile</a>
+      </li> -->
+
+    </ul>
+
+    <div class="navbar-right">
+      <ul class="nav navbar-nav no-borders">
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            <i class="pe-7s-keypad"></i>
+          </a>
+        </li>
+        <li>
+          <a id="sidebar" (click)="onToggleMenu()" class="right-sidebar-toggle">
+            <i class="pe-7s-user"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<div class="user-info-menu" [ngClass]="{'show':userMenuOpen}">
+  <a class="info-menu-item" routerLink='profile' (click)="onToggleMenu()">
+    <i class="pe-7s-id menu-icon"></i>Profile</a>
+  <a class="info-menu-item" (click)="onToggleMenu()">
+    <i class="pe-7s-bell menu-icon"></i>Notifications</a>
+  <a class="info-menu-item" (click)="onLogoutClick()">
+    <i class="pe-7s-power menu-icon"></i>Log Out</a>
+
+</div>

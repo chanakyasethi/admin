@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import url(http://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url(../src/assets/css/styles.css);
+@import url(../src/assets/plugins/dropdown.js/jquery.dropdown.css); */
+@import url("../node_modules/bootstrap/dist/css/bootstrap.min.css");
+@import url("./assets/vendor/fontawesome/css/font-awesome.css");
+@import url("./assets/vendor/metisMenu/dist/metisMenu.css");
+@import url("./assets/vendor/animate.css/animate.css");
+@import url("./assets/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css");
+@import url("./assets/styles/style.css");
+@import url("./assets/styles/static_custom.css");
+
+
+
+
+
+
+
+.inputError{
+    color: red!important;
+}

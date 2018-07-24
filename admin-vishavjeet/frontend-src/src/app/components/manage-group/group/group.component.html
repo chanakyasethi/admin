@@ -1,0 +1,297 @@
+<app-header></app-header>
+    <br>
+    <br>
+    
+        <div class="content">
+                <div class="container" *ngIf="(editMode || createMode)">
+                        <!-- <form (ngSubmit)="onSubmit(group)" #group="ngForm"> -->
+                            <!-- <div class="form-group row">
+                                <label class="col-sm-2 col-form-label"><h3>Group Name</h3></label>
+                                <div class="col-sm-4 form-group">
+                                    <input type="text" class="form-control input-lg" placeholder="Group Name" [(ngModel)]='groupName'  name="groupName">
+                                        {{groupName}}
+                                </div>
+                            </div> -->
+                        <!-- </form> -->
+                        <form #f='ngForm'>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label"><h4>Emails</h4></label>
+                                    <div class="col-sm-8 form-group">
+                                        <input style="display:inline;" type="email" class="form-control" name="abc" placeholder="abc@xyz.com" size="64" maxlength="256"  ngModel multiple #emails required list="defaultEmails">
+                                        <datalist id="defaultEmails">
+                                                <option *ngFor="let user of usersAdded" value={{user}}></option>
+                                                <!-- <option value="jbond007@mi6.defence.gov.uk">
+                                                <option value="jbourne@unknown.net">
+                                                <option value="nfury@shield.org">
+                                                <option value="tony@starkindustries.com">
+                                                <option value="hulk@grrrrrrrr.arg"> -->
+                                        </datalist>
+                                        <!-- <input style="display:inline;" type="text" class="form-control" placeholder="abc@xyz.com" [(ngModel)]='groupName'  name="groupName"> -->
+                                        <!-- {{groupName}} -->
+                                        <!-- <button *ngIf="emails.value.length === 0" disabled class="btn btn-default">Add</button>          -->
+                                        <button (click)="addID(emails.value)" [disabled]='f.invalid' class="btn btn-default">Add</button>         
+                                    </div>
+                                    <!-- <div class="col-sm-1 form-group" *ngIf= >
+                                        <button [disabled]='disabled' (click)="addID(emails.value)" class="btn btn-default">Add</button>         
+                                    </div> -->
+                                    <!-- <div class="col-sm-1 form-group" > -->
+                                    <!-- </div> -->
+                                </div>
+                            </form>
+                                 
+                            <!-- <form class="navbar-form " role="search">
+                                    <div class="form-group">
+                                      <input type="email" class="form-control" name="id" placeholder="abc@xyz.com" #id>
+                                    </div>
+                                    <a (click)="addID(id.value)" class="btn btn-default">Add</a>
+                            </form> -->
+                    </div>
+            <div class="row">
+                <div class="col-lg-3"  *ngIf="!(createMode)">
+                    <div id="sidebar" class="sidebar">
+                        <div class="sidebar__inner">
+                            <div class="hpanel">
+                                <div class="panel-body">
+                                    <div class="m-b-md">
+                                        <h4>
+                                            Filters
+                                        </h4>
+                                        <small>
+                                            Filter your project based on diferent options below.
+                                        </small>
+                                    </div>
+
+                                    <form method="get" class="form-horizontal">
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <label class=" control-label">Username</label>
+                                                <!-- <select [(ngModel)]="userList.branch" name="example2_length" aria-controls="example2" class="form-control input-sm"> -->
+                                                  <!-- <select name="example2_length" aria-controls="example2" class="form-control input-sm"> -->
+                                                    <input type="text" class="form-control input-sm" (keyup)="onSearch()" name="name" [(ngModel)]="user.username" placeholder="Username" >
+
+                                                    <!-- <option value="" ng-reflect-value="All">All</option> -->
+                                                    <!-- <option *ngFor="let branch of branch" value="{{branch}}" ng-reflect-value="Aptitude">{{branch}}</option> -->
+                                  
+                                                <!-- </select> -->
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <label class=" control-label">State</label>
+                                                <select [(ngModel)]="userList.state" name="example2_length" aria-controls="example2" class="form-control input-sm">
+                                                  <select name="example2_length" aria-controls="example2" class="form-control input-sm">
+
+                                                    <option value="" ng-reflect-value="All">All</option>
+                                                    <option *ngFor="let state of state" value="{{state}}" ng-reflect-value="Aptitude">{{state}}</option>
+                                                </select>
+                                            </div>
+                                        </div> -->
+                                        <!-- <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <label class=" control-label">Status</label>
+                                                <select name="example2_length" aria-controls="example2" class="form-control input-sm">
+                                                  <select  [(ngModel)]="userList.status" name="example2_length" aria-controls="example2" class="form-control input-sm">
+
+                                                    <option value="" ng-reflect-value="All">All</option>
+                                                    <option  *ngFor="let status of status"  value="{{status}}" ng-reflect-value="Aptitude">{{status}}</option>
+                                                </select>
+                                            </div>
+                                        </div> -->
+                                        <button (click)="onFilterUsers()" class="btn btn-success btn-block" type="button">Apply</button>
+                                    </form>
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+
+                        <form (ngSubmit)="onSubmit(group)" #group="ngForm">
+                                <div class="form-group row" *ngIf="editMode || createMode">
+                                        <label class="col-sm-2 col-form-label"><h3>Group Name</h3></label>
+                                        <div class="col-sm-4 form-group">
+                                            <input type="text" class="form-control input-lg" placeholder="Group Name" [(ngModel)]='groupName'  name="groupName">
+                                                <!-- {{groupName}} -->
+                                        </div>
+                                    </div>
+                                <div class="hpanel">
+
+                                        <div class="panel-body list">
+                                            <div class="m-b-md" *ngIf="!createMode">
+                                                <h4>
+                                                    {{groupName}}
+                                                </h4>
+                                                <small >
+                                                    The list of all the members are mentioned below
+                                                </small>
+                                                
+                
+                                            </div>
+                                            <div class="add-test">
+                
+                                                <button *ngIf="!createMode && !editMode"  (click)="onEdit()" type="button" class="btn btn-md btn-outline btn-success pull-right">
+                                                    <i class="pe-7s-plus"></i> Edit</button>
+                                                    <button *ngIf="!createMode"  (click)="onBack()" type="button" class="btn btn-md btn-outline btn-success pull-right">
+                                                     Back</button>
+              
+                                          </div>
+                                            <div class="row" style="padding-bottom:  10px;">
+                                              <div class="col-sm-6">
+                                                  <div class="dataTables_length pull-left" id="editable_length" style="margin-bottom:  5px;margin-top:  -5px;">
+                                                      <label>Show entries</label>
+                                                      <!-- <select (change)="onFilterUsers()" [(ngModel)]="userList.perPage" name="editable_length" aria-controls="example2" class="form-control input-sm">
+                                                          <option value="5" >5</option>
+                                                          <option value="10">10</option>
+                                                          <option value="15">15</option>
+                                                      </select> -->
+                                                  </div>
+                                              </div>
+                                          
+                                          </div>
+                                            <div class="table-responsive project-list">
+                                                <table class="table table-striped" style="border: 1px solid #ddd;padding: 5px;">
+                                                  
+                                                    <thead class="head">
+                                                            <tr>
+                
+                                                                <!-- <th>
+                                                                    <label class="control control--checkbox">
+                                                                        <input type="checkbox" />
+                                                                        <div class="control__indicator" style="top: 0px;left: 2px;"></div>
+                                                                    </label>
+                                                                    <div class="blank-space"></div>
+                                                                </th> -->
+                                                                <th >UserName</th>
+                                                                <!-- <th>ID</th> -->
+                                                                <!-- <th>Action</th> -->
+                
+                                                                <th *ngIf="editMode || createMode">Action</th>
+                                                            </tr>
+                
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let c of users;let i=index" >
+                                                            <!-- <td>
+                                                                <label class="control controlcheckbox">
+                                                                    <input type="checkbox" [checked]="checkedBoxValue"/>
+                                                                    <div class="control__indicator"></div>
+                                                                </label>
+                                                            </td> -->
+                                                            <td>{{c}}</td>
+                                                            <td *ngIf="editMode || createMode"><button (click)="onRemoveUser(i)" type="button" class="btn ">Remove</button></td>
+                                                            <!-- <td>{{c}}</td> -->
+                                                            <!-- <td>
+                                                              <button class="btn btn-danger" (click)="onRemove(i)">
+                                                               Remove
+                                                              </button>
+                                                            </td> -->
+                                                            <!-- <td>{{c.value.state}}</td>                                             -->
+                                                            <!-- <td> -->
+                                                                <!-- <span *ngIf="c.value.status !== Inactive">
+                                                                    <i class="fa fa-toggle-on" (click)="onToggleClick(i,c)" style="font-size:150%"></i>
+                                                                </span>
+                                                                <span *ngIf="c.value.status == Inactive">
+                                                                    <i class="fa fa-toggle-off" (click)="onToggleClick(i,c)" style="font-size:150%"></i>
+                
+                                                                </span> -->
+                                                            <!-- </td> -->
+                                                            <!-- <td *ngIf="c.value.state == 'draft'" (click)="onDelete(c)">
+                                                                 <i class="fa fa-trash"></i>
+                                                                </td> -->
+                                                        </tr>
+                                                    
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- <div class="row">
+                                                <div class="col-sm-5">
+                                                    <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing {{startTestInstance}} to {{endTestInstance}} of {{count}} entries</div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="dataTables_paginate paging_simple_numbers pull-right" id="example2_paginate">
+                                                        <ul class="pagination">
+                                                            <li class="paginate_button previous disabled" id="example2_previous"  [ngClass]="{disabled : pageNo == 1}">
+                                                                <a (click)="onPrev()" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
+                                                            </li>
+                                                            <li *ngFor="let element of dummyArray;let i=index" class="paginate_button"  [ngClass]="{active : pageNo == element}">
+                                                                <a (click)="onPageno(element)" aria-controls="example2" data-dt-idx="1" tabindex="0">{{element}}</a>
+                                                            </li>
+                                                         
+                                                            <li class="paginate_button next" id="example2_next" [ngClass]="{disabled : pageNo >= totalPages}">
+                                                                <a (click)="onNext()" aria-controls="example2" data-dt-idx="6" tabindex="0">Next</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                            <div>
+                                                    <div style="display:inline" *ngIf="users.length > 0 && groupName != '' "  >
+                                                            <button  *ngIf="editMode || createMode" class="btn btn-success"  type="submit">Submit</button>
+                                                        </div>
+                                                        <div style="display:inline" *ngIf="users.length == 0 || groupName == '' " >
+                                                            <button disabled *ngIf="editMode || createMode" class="btn btn-success"  type="submit">Submit</button>
+                                                        </div>
+                                                <button style="display:inline" *ngIf="createMode"  (click)="onBack()" type="button" class="btn btn-md btn-outline btn-warning pull-right">
+                                                Cancel</button>
+                                            </div>
+                                            
+
+                                            
+                                        </div>
+                                    </div>
+                              </form>
+
+                    
+
+                </div>
+            </div>
+
+        </div>
+
+  
+
+    <!-- Footer-->
+    <div id="footer" class="app-footer">
+        <div class="section-content">
+            <div class="col-sm-6">
+                <ul class="list-inline no-margins">
+                    <li class="hidden-xs">
+                        <a>cfeindia</a>
+                    </li>
+                    <li>
+                        <a>Blogs</a>
+                    </li>
+                    <li>
+                        <a>Careers</a>
+                    </li>
+                    <li>
+                        <a>Documentation</a>
+                    </li>
+                    <li>
+                        <button class="btn  btn-xs btn-info btn-outline" style="font-weight:  600;"> Support</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-6">
+                <ul class="list-inline pull-right no-margins">
+                    <li>
+                        <a>Terms of Service</a>
+                    </li>
+                    <li>
+                        <a>Privacy</a>
+                    </li>
+                    <li>
+                        <a>Cookies</a>
+                    </li>
+                    <li>© 2018 cfeindia.com</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>

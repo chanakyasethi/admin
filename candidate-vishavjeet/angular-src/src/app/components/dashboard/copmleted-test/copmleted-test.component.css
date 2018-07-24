@@ -1,0 +1,44 @@
+.modal-footerc,.modal-headerc{
+    background-color: #fff;
+    
+}
+.modal{
+    background: rgba(0,0,0,0.45);
+    z-index: 10000;
+}
+.modal-headerc{
+    padding: 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.modal-footerc{
+    padding: 6px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+}
+.modal-title{
+    display: inline-block;
+    font-size: 20px;
+}
+.close-btn{
+    color: red;
+}
+
+.col-xs-6{
+        width: 40%;
+}
+.col-xs-5{
+    width:35%
+}
+.col-xs-1{
+    width: 6%;
+}
+/* .result-col.col-md-6{
+    padding:1px;
+} */
+@media (min-width: 768px)
+{    
+    .modal-dialog {
+    width: 65%;
+}
+
+}

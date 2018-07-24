@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+ /* @import './assets1/css/main.css';
+@import './assets1/sass/main.css'; */
+/*.inputError{
+    color: red!important;
+    float:right;
+} */
+@import url("../node_modules/bootstrap/dist/css/bootstrap.min.css");
+@import url("./assets/vendor/fontawesome/css/font-awesome.css");
+@import url("./assets/vendor/metisMenu/dist/metisMenu.css");
+@import url("./assets/vendor/animate.css/animate.css");
+@import url("./assets/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css");
+@import url("./assets/styles/style.css");
+@import url("./assets/styles/static_custom.css");
+
+
+
+.ng-invalid.form-control.invalidfield,.ng-invalid.form-control.ng-dirty
+{
+/* border: 0.1px solid red!important; */
+box-shadow: 0 0 10px 0 rgba(255,0,0,1)!important;
+}
+
+
+
+.inputError{
+    color: red!important;
+}
+
+

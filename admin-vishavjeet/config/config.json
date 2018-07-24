@@ -1,0 +1,12 @@
+{
+  "dev": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/adminservice",
+    "JWT_SECRET": "cfeindia"
+  },
+  "test": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/adminservice-test",
+    "JWT_SECRET": "cfeindia"
+  }
+}

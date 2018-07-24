@@ -1,0 +1,66 @@
+
+
+.assign-test {
+    background-color: #fff;
+    padding: 1px 3px 2px;
+    border-radius: 3px;
+    /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.0588235); */
+  }
+  
+  .test-list table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0px 0;
+  }
+  
+  
+  .test-list table tbody {
+    background-color: #eeeeef;
+  }
+  .test-list table tr:nth-child(odd) {
+   background: #ced4d8;
+  }
+  .test-list table tr:nth-child(even) {
+    background:#eaeaea;
+  }
+  .test-list table tr {
+    padding: 10px;
+    border-bottom: 1px solid #d4d3d3;
+    height: 50px;
+    background: #eee;
+    margin-bottom: 1%;
+  }
+  .test-list table tr:last-child {
+    border: none;
+  }
+  .test-list table td.t-index {
+    padding: 5px 15px;
+    font-weight: 600;
+    width: 6%;
+  }
+  .test-list table td.t-name {
+    font-size: 120%;
+    font-weight: 600;
+    color: #286090;
+  }
+  .test-list table td.t-duration {
+    color: #696969;
+    font-size: 90%;
+  }
+  .test-list table td.t-action {
+    float: right;
+    padding-right: 10px;
+    margin: 8px auto;
+  }
+  button.med {
+    padding: 7px 30px;
+  }
+  .dark-blue {
+    background: #36626A;
+    border: #36626A;
+    color: #fff;
+  }
+  .button{
+        border-radius: 3px;
+  }
+  
